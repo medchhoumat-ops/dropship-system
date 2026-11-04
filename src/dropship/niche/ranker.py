@@ -82,7 +82,7 @@ def deep_search(seeds: list[str], market: Market, settings: Settings, clients) -
             head = starters[0] if starters else sub
             related: list[str] = []
             try:
-                for probe in (sub, head):
+                for probe in starters[:2] or [sub]:  # probe real products, not category names
                     related += [m.keyword for m in clients.semrush.related(probe, market, limit=10)
                                 if m.volume >= 100]
             except ApiError as exc:

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dropship report {{ run.id }}</title>
+<style>
+:root { --bg:#fafaf9; --fg:#1c1917; --muted:#57534e; --line:#e7e5e4; --card:#fff;
+        --ok:#15803d; --bad:#b91c1c; --warn:#b45309; --accent:#1d4ed8; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#1c1917; --fg:#f5f5f4; --muted:#a8a29e; --line:#44403c; --card:#292524;
+          --ok:#4ade80; --bad:#f87171; --warn:#fbbf24; --accent:#93c5fd; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+main { max-width:1200px; margin:0 auto; padding:24px 16px 64px; }
+h1 { margin:0 0 4px; font-size:26px; } h2 { margin:40px 0 12px; font-size:20px; border-bottom:1px solid var(--line); padding-bottom:6px; }
+h3 { margin:0 0 8px; font-size:17px; } h4 { margin:14px 0 4px; font-size:14px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+.meta { color:var(--muted); font-size:13px; }
+.banner { background:#fef3c7; color:#78350f; padding:10px 14px; border-radius:8px; margin:16px 0; }
+.table-wrap { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; background:var(--card); font-size:14px; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); }
+td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; margin:14px 0; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+.ok { color:var(--ok); } .bad { color:var(--bad); } .warn { color:var(--warn); }
+.score { font-size:28px; font-weight:700; } .grade { font-size:13px; color:var(--muted); }
+.pill { display:inline-block; padding:1px 8px; border-radius:999px; border:1px solid var(--line); font-size:12px; margin-right:4px; }
+.spark { color:var(--accent); vertical-align:middle; }
+ul { margin:4px 0; padding-left:20px; } a { color:var(--accent); }
+details summary { cursor:pointer; color:var(--accent); margin-top:8px; }
+code, .prompt { font-family: ui-monospace, Menlo, monospace; font-size:13px; }
+.prompt { background:var(--bg); border:1px solid var(--line); padding:8px; border-radius:6px; white-space:pre-wrap; }
+</style>
+</head>
+<body><main>
+<h1>Dropship {{ run.command }} report – {{ run.market.name }}</h1>
+<div class="meta">Run <code>{{ run.id }}</code> · {{ run.created_at }} · v{{ run.version }} ·
+  params: {% for k, v in run.params.items() %}{{ k }}={{ v }}{% if not loop.last %}, {% endif %}{% endfor %}</div>
+{% set mocked = run.modes | dictsort | selectattr(1, 'equalto', 'mock') | map(attribute=0) | list %}
+{% if mocked %}<div class="banner">Mock data used for: {{ mocked | join(', ') }}. Numbers are illustrative – add API keys to <code>.env</code> for real data.</div>{% endif %}
+<div class="meta">Rules: landed ${{ run.rules.landed_usd[0] }}–${{ run.rules.landed_usd[1] }} · delivery ≤ {{ run.rules.max_delivery_days }} days ·
+  single variant: {{ run.rules.single_variant_only }} · price × {{ run.rules.multiplier[0] }}–{{ run.rules.multiplier[1] }} · fees {{ run.rules.fees }} ·
+  warehouses {{ run.rules.warehouses | join(', ') }}</div>
+
+{% if run.niches %}
+<h2>Top niches</h2>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>Niche</th><th>Category</th><th class="n">Score</th><th class="n">Demand</th><th class="n">Trend</th><th class="n">Competition</th><th>Price range</th><th>Product ideas</th></tr>
+{% for n in run.niches %}
+<tr><td>{{ loop.index }}</td><td><strong>{{ n.name }}</strong></td><td>{{ n.category }}</td><td class="n">{{ n.score }}</td>
+<td class="n">{{ n.demand | num }}</td><td class="n">{{ n.trend | pct(true) }}</td><td class="n">{{ '%.2f' % n.competition }}</td>
+<td>{% if n.price_median %}{{ n.price_min | money }}–{{ n.price_max | money }} (med {{ n.price_median | money }}){% else %}–{% endif %}</td>
+<td>{{ n.ideas | length }}</td></tr>
+{% endfor %}
+</table></div>
+{% for n in run.niches %}
+<div class="card"><h3>{{ loop.index }}. {{ n.name }} <span class="pill">{{ n.score }}/100</span></h3>
+<ul>{% for r in n.reasons %}<li>{{ r }}</li>{% endfor %}</ul>
+<div class="table-wrap"><table><tr><th>Product idea</th><th class="n">Volume</th><th class="n">CPC</th><th class="n">Competition</th><th class="n">Trend</th></tr>
+{% for i in n.ideas %}<tr><td>{{ i.keyword }}</td><td class="n">{{ i.volume | num }}</td><td class="n">{{ i.cpc | money }}</td><td class="n">{{ '%.2f' % i.competition }}</td><td class="n">{{ i.trend_change | pct(true) }}</td></tr>{% endfor %}
+</table></div>
+<div class="meta">Next: <code>dropship source "{{ n.ideas[0].keyword }}" --country {{ run.country }}</code></div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if run.research %}
+<h2>Keyword research</h2>
+<div class="table-wrap"><table>
+<tr><th>Keyword</th><th class="n">Volume</th><th class="n">CPC</th><th class="n">Comp.</th><th>12-mo trend</th><th>Amazon (page 1)</th><th>Google Shopping</th></tr>
+{% for r in run.research %}
+<tr><td><strong>{{ r.keyword }}</strong>{% for e in r.errors %}<div class="bad meta">{{ e }}</div>{% endfor %}</td>
+<td class="n">{{ r.volume | num }}</td><td class="n">{{ r.cpc | money }}</td><td class="n">{{ '%.2f' % r.competition }}</td>
+<td>{{ r.trend | sparkline | safe }} {{ r.trend_change | pct(true) }} <span class="meta">({{ r.trend_source }})</span></td>
+<td>{% if r.amazon %}{{ r.amazon.count }} results · {{ r.amazon.price_min | money }}–{{ r.amazon.price_max | money }} (med {{ r.amazon.price_median | money }})<br>
+★ {{ r.amazon.rating_avg or '–' }} · median reviews {{ r.amazon.reviews_median | num }} · best BSR {{ r.amazon.best_bsr | num }} · {{ r.amazon.sellers }} sellers / {{ r.amazon.offers_total }} offers{% else %}–{% endif %}</td>
+<td>{% if r.shopping %}{{ r.shopping.count }} offers · {{ r.shopping.sellers }} sellers<br>{{ r.shopping.price_min | money }}–{{ r.shopping.price_max | money }} (med {{ r.shopping.price_median | money }}){% else %}–{% endif %}</td></tr>
+{% endfor %}
+</table></div>
+{% for r in run.research if r.shopping and r.shopping.offers %}
+<details><summary>Google Shopping sellers for “{{ r.keyword }}”</summary>
+<div class="table-wrap"><table><tr><th>Seller</th><th>Title</th><th class="n">Price</th><th class="n">Rating</th><th>Domain</th></tr>
+{% for o in r.shopping.offers %}<tr><td>{{ o.source }}</td><td>{{ o.title }}</td><td class="n">{{ o.price | money }}</td><td class="n">{{ o.rating or '–' }}{% if o.reviews %} ({{ o.reviews }}){% endif %}</td><td>{{ o.domain or '–' }}</td></tr>{% endfor %}
+</table></div></details>
+{% endfor %}
+{% endif %}
+
+{% if run.picks %}
+<h2>Picks ({{ run.picks | length }})</h2>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>Product</th><th>Source</th><th class="n">Score</th><th class="n">Landed</th><th class="n">Price</th><th class="n">Margin</th><th class="n">BE CPA</th><th class="n">BE ROAS</th><th>Delivery</th></tr>
+{% for e in run.picks %}
+<tr><td>{{ loop.index }}</td><td>{{ e.product.title }}<div class="meta">{{ e.keyword }}</div></td><td>{{ e.product.platform }}</td>
+<td class="n"><strong>{{ e.score.total }}</strong> {{ e.score.grade }}</td><td class="n">{{ e.pricing.landed_cost | money }}</td>
+<td class="n">{{ e.pricing.price | money }}{% if e.pricing.local_currency != 'USD' %}<div class="meta">{{ e.pricing.local_currency }} {{ e.pricing.local_price }}</div>{% endif %}</td>
+<td class="n">{{ e.pricing.margin_pct | pct }}</td><td class="n">{{ e.pricing.breakeven_cpa | money }}</td><td class="n">{{ e.pricing.breakeven_roas or '–' }}</td>
+<td>{{ e.filter.shipping.min_days }}–{{ e.filter.shipping.max_days }} d from {{ e.filter.shipping.from_country }}</td></tr>
+{% endfor %}
+</table></div>
+
+{% for e in run.picks %}
+<div class="card">
+<div class="grid">
+<div><h3>{{ loop.index }}. {{ e.product.title }}</h3>
+<div class="meta">{{ e.product.platform | upper }} · <a href="{{ e.product.url }}" rel="noopener">{{ e.product.product_id }}</a>{% if e.product.supplier %} · supplier: {% if e.product.supplier.url %}<a href="{{ e.product.supplier.url }}" rel="noopener">{{ e.product.supplier.name }}</a>{% else %}{{ e.product.supplier.name }}{% endif %}{% endif %}</div>
+{% if e.product.supplier and e.product.supplier.contact_url %}<div class="meta">Contact: {{ e.product.supplier.contact_url }}</div>{% endif %}
+</div>
+<div><span class="score">{{ e.score.total }}</span><span class="grade">/100 · grade {{ e.score.grade }}</span>
+<div class="meta">{% for k, v in e.score.points.items() %}{{ k }} {{ v }}{% if not loop.last %} · {% endif %}{% endfor %}</div></div>
+<div><div>Item {{ (e.filter.item_cost or e.product.price) | money }} + shipping {{ e.filter.shipping.cost | money }} = <strong>{{ e.pricing.landed_cost | money }}</strong></div>
+<div>Price <strong>{{ e.pricing.price | money }}</strong> (× {{ e.pricing.multiplier }}; range {{ e.pricing.price_low | money }}–{{ e.pricing.price_high | money }})</div>
+<div>Fees {{ e.pricing.fees | money }} · profit {{ e.pricing.profit | money }} · margin {{ e.pricing.margin_pct | pct }}</div>
+<div>Break-even CPA {{ e.pricing.breakeven_cpa | money }} · ROAS {{ e.pricing.breakeven_roas }}</div></div>
+</div>
+<div class="grid">
+<div><h4>Why pick it</h4><ul>{% for x in e.narrative.why %}<li>{{ x }}</li>{% endfor %}</ul></div>
+<div><h4>Risks</h4><ul>{% for x in e.narrative.risks %}<li>{{ x }}</li>{% endfor %}</ul></div>
+<div><h4>How to scale</h4><ul>{% for x in e.narrative.scale %}<li>{{ x }}</li>{% endfor %}</ul></div>
+</div>
+<details><summary>Variants, stock and shipping</summary>
+<h4>Variants ({{ e.product.variants | length }})</h4><ul>{% for v in e.product.variants %}<li>{{ v.name or v.sku }} – {{ v.price | money }}{% if v.attributes %} {{ v.attributes }}{% endif %}</li>{% endfor %}</ul>
+<h4>Stock per warehouse</h4><ul>{% for s in e.product.stock %}<li>{{ s.country }} {{ s.name }}: {{ s.quantity | num }}</li>{% endfor %}</ul>
+<h4>Shipping to {{ run.country }}</h4><div class="table-wrap"><table><tr><th>Method</th><th>From</th><th class="n">Cost</th><th>Days</th></tr>
+{% for o in e.product.shipping %}<tr><td>{{ o.method }}</td><td>{{ o.from_country }}</td><td class="n">{{ o.cost | money }}</td><td>{{ o.min_days }}–{{ o.max_days }}</td></tr>{% endfor %}</table></div>
+{% if e.filter.notes %}<div class="meta">{{ e.filter.notes | join(' · ') }}</div>{% endif %}
+</details>
+{% if e.creative %}
+<details><summary>Creative: Google Flow image prompts & UGC scripts</summary>
+<h4>Image prompts</h4>
+{% for p in e.creative.image_prompts %}<div><strong>{{ p.angle }}</strong><div class="prompt">{{ p.prompt }}</div></div>{% endfor %}
+<h4>UGC scripts</h4>
+{% for s in e.creative.ugc_scripts %}<div class="card"><strong>{{ s.title }}</strong>
+<ul><li><b>Hook:</b> {{ s.hook }}</li><li><b>Problem:</b> {{ s.problem }}</li><li><b>Demo:</b> {{ s.demo }}</li><li><b>CTA:</b> {{ s.cta }}</li></ul></div>{% endfor %}
+<h4>Rules</h4><ul>{% for r in e.creative.rules %}<li>{{ r }}</li>{% endfor %}</ul>
+</details>
+{% endif %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if run.rejected %}
+<h2>Rejected products ({{ run.rejected | length }})</h2>
+<div class="table-wrap"><table><tr><th>Product</th><th>Source</th><th class="n">Item</th><th>Why rejected</th></tr>
+{% for e in run.rejected %}<tr><td>{{ e.product.title }}<div class="meta">{{ e.product.product_id }}</div></td><td>{{ e.product.platform }}</td><td class="n">{{ e.product.price | money }}</td>
+<td><ul>{% for f in e.filter.failures %}<li class="bad">{{ f }}</li>{% endfor %}</ul></td></tr>{% endfor %}
+</table></div>
+{% endif %}
+
+{% if run.competitors %}
+<h2>Competitor stores</h2>
+<div class="table-wrap"><table>
+<tr><th>Store</th><th>Theme</th><th class="n">Products</th><th>Prices</th><th class="n">Imgs</th><th>FAQ</th><th>Shipping</th><th class="n">Refund</th></tr>
+{% for s in run.competitors %}
+<tr><td><a href="https://{{ s.domain }}" rel="noopener">{{ s.domain }}</a><div class="meta">{{ s.source_name }}</div>{% for e in s.errors %}<div class="meta warn">{{ e }}</div>{% endfor %}</td>
+<td>{{ s.theme or '–' }}</td><td class="n">{{ s.product_count or '–' }}</td>
+<td>{% if s.price_median %}{{ s.price_min | money }}–{{ s.price_max | money }}{% else %}–{% endif %}</td>
+<td class="n">{{ s.images_avg or '–' }}</td><td>{% if s.faq_found %}{{ s.faq_questions }} Qs{% else %}no{% endif %}</td>
+<td>{% if s.shipping_days %}{{ s.shipping_days[0] }}–{{ s.shipping_days[1] }} d{% endif %}{% if s.free_shipping %} · free{% if s.free_shipping_threshold %} over {{ s.free_shipping_threshold | money }}{% endif %}{% endif %}</td>
+<td class="n">{{ s.refund_days ~ ' d' if s.refund_days else '–' }}</td></tr>
+{% endfor %}
+</table></div>
+<div class="grid">
+{% for s in run.competitors if s.is_shopify %}
+<div class="card"><h3>{{ s.domain }}</h3>
+<h4>Does well</h4><ul>{% for x in s.strengths %}<li class="ok">{{ x }}</li>{% else %}<li>–</li>{% endfor %}</ul>
+<h4>Gaps</h4><ul>{% for x in s.gaps %}<li class="warn">{{ x }}</li>{% else %}<li>–</li>{% endfor %}</ul>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+
+<p class="meta">Generated by dropship-system. Verify every product with a sample order before advertising.</p>
+</main></body></html>

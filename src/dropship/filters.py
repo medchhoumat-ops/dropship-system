@@ -20,6 +20,7 @@ class FilterResult:
     notes: list[str] = field(default_factory=list)
     warehouse: str | None = None
     shipping: ShippingOption | None = None
+    item_cost: float | None = None  # unit cost from the chosen warehouse
     landed_cost: float | None = None
 
 
@@ -39,6 +40,8 @@ def evaluate(product: SourcedProduct, market: Market, settings: Settings) -> Fil
     if settings.single_variant_only and not is_single_variant(product):
         opts = sorted({k for v in product.variants for k in v.attributes}) or ["options"]
         res.failures.append(f"{len(product.variants)} variants ({', '.join(opts)}) – need a single variant")
+        if not product.stock and not product.shipping:  # lookups were skipped; nothing else to judge
+            return res
 
     # 2. stock near the market
     eligible = [s for s in product.stock if s.quantity > 0 and s.country in market.warehouse_countries]
@@ -72,10 +75,12 @@ def evaluate(product: SourcedProduct, market: Market, settings: Settings) -> Fil
 
     # 4. landed cost
     ship = res.shipping or (min(product.shipping, key=lambda o: o.cost) if product.shipping else None)
-    if product.price is None:
+    item_price = product.price_from(ship.from_country) if ship else product.price
+    if item_price is None:
         res.failures.append("no item price")
     elif ship is not None:
-        res.landed_cost = round(product.price + ship.cost, 2)
+        res.item_cost = item_price
+        res.landed_cost = round(item_price + ship.cost, 2)
         if not settings.landed_min <= res.landed_cost <= settings.landed_max:
             res.failures.append(
                 f"landed cost ${res.landed_cost:.2f} outside ${settings.landed_min:.0f}–${settings.landed_max:.0f}")

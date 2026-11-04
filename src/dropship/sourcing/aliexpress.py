@@ -109,6 +109,7 @@ class AliExpressClient(BaseClient):
         variants: dict[tuple, Variant] = {}
         stock: dict[str, int] = {}
         sku_by_origin: dict[str, str] = {}
+        origin_prices: dict[str, float] = {}
         for s in skus:
             props = _list(s, "ae_sku_property_dtos", "ae_sku_property_d_t_o")
             origin = "CN"
@@ -125,6 +126,8 @@ class AliExpressClient(BaseClient):
             sku_by_origin.setdefault(origin, str(s.get("sku_id")))
             key = tuple(sorted(attrs.items()))
             price = to_float(s.get("offer_sale_price")) or to_float(s.get("sku_price"))
+            if price and (origin not in origin_prices or price < origin_prices[origin]):
+                origin_prices[origin] = price
             if key not in variants:
                 variants[key] = Variant(vid=str(s.get("sku_id")), sku=s.get("sku_attr") or "",
                                         name=", ".join(f"{k}: {v}" for k, v in attrs.items()) or "default",
@@ -139,7 +142,7 @@ class AliExpressClient(BaseClient):
             title=base.get("subject") or "", price=min(prices) if prices else None,
             url=f"https://www.aliexpress.com/item/{product_id}.html",
             image=images.split(";")[0] if images else None, category=str(base.get("category_id") or ""),
-            variants=list(variants.values()),
+            variants=list(variants.values()), origin_prices=origin_prices,
             stock=[WarehouseStock(country=c, name=f"Ships from {c}", quantity=q) for c, q in stock.items()],
             supplier=Supplier(platform="aliexpress", name=store.get("store_name") or "AliExpress seller",
                               store_id=str(store_id) if store_id else None,

@@ -132,7 +132,11 @@ class SourcedProduct:
     stock: list[WarehouseStock] = field(default_factory=list)
     shipping: list[ShippingOption] = field(default_factory=list)
     supplier: Supplier | None = None
+    origin_prices: dict[str, float] = field(default_factory=dict)  # warehouse ISO -> unit cost
     errors: list[str] = field(default_factory=list)
+
+    def price_from(self, origin: str | None) -> float | None:
+        return self.origin_prices.get(origin or "", self.price)
 
 
 # ---------------------------------------------------------------- competitors

@@ -8,7 +8,7 @@ import re
 from ..models import CompetitorStore, ShoppingSummary
 from ..research.serpapi import is_marketplace
 from ..utils import html_to_text, median, to_float
-from .shopify import ShopifyInspector
+from .shopify import ShopifyInspector, detect_theme
 
 log = logging.getLogger("dropship")
 
@@ -40,10 +40,10 @@ def _matches(title: str, tokens: set[str]) -> bool:
 
 
 def parse_shipping_policy(text: str) -> tuple[tuple[int | None, int | None] | None, float | None, bool]:
-    days = None
-    m = re.search(r"(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})\s*(?:business\s+|working\s+)?days", text, re.I)
-    if m:
-        days = (int(m.group(1)), int(m.group(2)))
+    # several ranges usually exist (processing 1-2 days, delivery 5-9 days): keep the longest
+    ranges = [(int(a), int(b)) for a, b in re.findall(
+        r"(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})\s*(?:business\s+|working\s+)?days", text, re.I)]
+    days = max(ranges, key=lambda r: r[1]) if ranges else None
     threshold = None
     m = re.search(r"free\s+shipping[^.]{0,40}?(?:over|above|from)\s*[$£€]?\s*(\d+(?:[.,]\d+)?)", text, re.I)
     if m:

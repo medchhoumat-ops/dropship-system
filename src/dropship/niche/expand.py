@@ -30,6 +30,13 @@ def seed_niches(seed: str) -> dict[str, list[str]]:
     return {key: [key]}
 
 
+LEADING_FILLER = re.compile(r"^(best|top|cheap|good|new|buy)\s+", re.I)
+
+
+def normalise(kw: str) -> str:
+    return LEADING_FILLER.sub("", " ".join(kw.lower().split()))
+
+
 def is_product_keyword(kw: str) -> bool:
     k = kw.lower()
     return not any(re.search(rf"\b{re.escape(b)}\b", k) for b in BLOCKLIST) and 1 <= len(k.split()) <= 6
@@ -39,7 +46,7 @@ def merge_ideas(base: list[str], related: list[str], limit: int) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
     for kw in [*base, *related]:
-        norm = " ".join(kw.lower().split())
+        norm = normalise(kw)
         if norm in seen or not is_product_keyword(norm):
             continue
         seen.add(norm)
