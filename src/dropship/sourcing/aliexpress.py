@@ -76,7 +76,8 @@ class AliExpressClient(BaseClient):
             raise ApiError(f"aliexpress product {product_id}: {resp.get('rsp_msg')}")
         return resp.get("result") or {}
 
-    def freight(self, product_id: str, sku_id: str, market: Market) -> list[ShippingOption]:
+    def freight(self, product_id: str, sku_id: str, market: Market,
+                origin: str = "CN") -> list[ShippingOption]:
         req = {"quantity": 1, "shipToCountry": market.iso, "productId": product_id,
                "selectedSkuId": sku_id, "language": "en_US", "locale": "en_US",
                "currency": "USD", "source": "any"}
@@ -89,7 +90,8 @@ class AliExpressClient(BaseClient):
                 to_float(r.get("shipping_fee_format")) or to_float(r.get("shipping_fee_cent"), 0.0))
             out.append(ShippingOption(
                 method=r.get("company") or r.get("code") or "?",
-                from_country=country_iso(r.get("ship_from_country")), to_country=market.iso,
+                from_country=country_iso(r["ship_from_country"]) if r.get("ship_from_country") else origin,
+                to_country=market.iso,
                 cost=fee or 0.0, min_days=int(to_float(r.get("min_delivery_days"), 0)) or None,
                 max_days=int(to_float(r.get("max_delivery_days"), 0)) or None))
         return out
@@ -156,9 +158,7 @@ class AliExpressClient(BaseClient):
             if origin != "CN" and origin not in market.warehouse_countries:
                 continue
             try:
-                for opt in self.freight(p.product_id, sku_id, market):
-                    opt.from_country = opt.from_country if opt.from_country != "CN" or origin == "CN" else origin
-                    p.shipping.append(opt)
+                p.shipping.extend(self.freight(p.product_id, sku_id, market, origin))
             except ApiError as exc:
                 p.errors.append(str(exc))
         return p
