@@ -41,7 +41,7 @@ def evaluate(product: SourcedProduct, market: Market, settings: Settings) -> Fil
     if settings.single_variant_only and not is_single_variant(product):
         opts = sorted({k for v in product.variants for k in v.attributes}) or ["options"]
         res.failures.append(f"{len(product.variants)} variants ({', '.join(opts)}) – need a single variant")
-        if not product.stock and not product.shipping:  # lookups were skipped; nothing else to judge
+        if not product.shipping:  # stock/freight lookups were skipped for multi-variant items
             return res
 
     # 2. stock near the market
