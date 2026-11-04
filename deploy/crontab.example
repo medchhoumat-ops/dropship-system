@@ -1,0 +1,3 @@
+# m h dom mon dow  command
+# Weekly niche scan every Monday 05:17 (server time); logs to ~/dropship-system/logs/cron.log
+17 5 * * 1  cd $HOME/dropship-system && ./deploy/weekly-niche.sh "pets,kitchen,home,fitness" >> logs/cron.log 2>&1
