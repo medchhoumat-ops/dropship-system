@@ -13,13 +13,15 @@ massager and a silk sleep mask.
 
 ## Checks done (4 Nov 2026)
 - Web search: no business, shop or brand found using "Lumaube" or "Aubelia".
-- Not checked here, so do these before buying the domain:
-  1. Domain availability (the registrar tool was blocked in this environment). Check these in order:
-     `lumaube.com`, `lumaube.shop`, `aubelia.com`.
-     **No `.fr` or `.eu`:** both require the holder to live in the EU/EEA (or Switzerland), so they
-     can't be registered from Morocco in your own name. `.com` works from any country.
-     Avoid city names such as "paris" in the domain: the business is not based there.
-     Support e-mail in the theme and legal pages: `bonjour@lumaube.com` (change it if the domain changes).
+- Still to do before launch:
+  1. Domain (checked by the owner on Namecheap, 4 Nov 2026):
+     - `lumaube.com`: not offered (taken). `aubelia.com`: premium, $3,595, so not worth it.
+     - **Chosen: `lumaube.shop`**, available at $0.98 the first year, then $38.98/year.
+     - No `.fr` or `.eu`: both require the holder to live in the EU/EEA (or Switzerland), so they
+       can't be registered from Morocco in your own name.
+     - Avoid city names such as "paris" in the domain: the business is not based there.
+     - Support e-mail in the theme and legal pages: `bonjour@lumaube.shop` (free Namecheap e-mail
+       forwarding to your personal inbox).
   2. Trademark search at INPI ([data.inpi.fr](https://data.inpi.fr)) and EUIPO
      ([euipo.europa.eu/eSearch](https://euipo.europa.eu/eSearch/)) for "Lumaube", classes 9, 11 and 20.
 
