@@ -1,0 +1,17 @@
+{%- comment -%} Usage: {% render 'product-card', product: product %} {%- endcomment -%}
+<article class="card">
+  <a class="card__media" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 990px) 30vw, 50vw', alt: product.featured_media.alt | escape }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+    {%- endif -%}
+  </a>
+  <div class="card__body">
+    <h3 class="card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    {%- if product.metafields.lumaube.tagline != blank -%}
+      <p class="card__tagline">{{ product.metafields.lumaube.tagline }}</p>
+    {%- endif -%}
+    {% render 'price', product: product %}
+  </div>
+</article>

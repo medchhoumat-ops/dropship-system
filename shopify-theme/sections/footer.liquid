@@ -1,0 +1,53 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="logo" href="{{ routes.root_url }}" style="width: var(--logo-width)">{% render 'logo', variant: 'white' %}</a>
+      <p>{{ section.settings.about }}</p>
+      <p><a href="mailto:{{ settings.support_email }}">{{ settings.support_email }}</a></p>
+      <ul class="footer__social">
+        {%- if settings.social_instagram != blank -%}<li><a href="{{ settings.social_instagram }}" rel="noopener" target="_blank">Instagram</a></li>{%- endif -%}
+        {%- if settings.social_tiktok != blank -%}<li><a href="{{ settings.social_tiktok }}" rel="noopener" target="_blank">TikTok</a></li>{%- endif -%}
+        {%- if settings.social_pinterest != blank -%}<li><a href="{{ settings.social_pinterest }}" rel="noopener" target="_blank">Pinterest</a></li>{%- endif -%}
+      </ul>
+    </div>
+    {%- for block in section.blocks -%}
+      <div class="footer__col" {{ block.shopify_attributes }}>
+        <h2 class="footer__title">{{ block.settings.title }}</h2>
+        <ul>
+          {%- for link in block.settings.menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="container footer__bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} · {{ 'footer.rights' | t }}</p>
+    <ul class="footer__payments" aria-label="{{ 'footer.payments' | t }}">
+      {%- for type in shop.enabled_payment_types -%}
+        <li>{{ type | payment_type_svg_tag: class: 'payment-icon' }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Pied de page",
+  "class": "section-footer",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "textarea", "id": "about", "label": "Texte de présentation", "default": "Lumaube sélectionne quelques objets simples pour des matins plus doux et des soirées plus calmes." }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Informations" },
+        { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Pied de page" }]
+}
+{% endschema %}

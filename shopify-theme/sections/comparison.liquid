@@ -1,0 +1,56 @@
+<section class="section{% if section.settings.alt %} section--alt{% endif %}">
+  <div class="container">
+    <header class="section__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="section__title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.intro != blank -%}<div class="rte section__intro">{{ section.settings.intro }}</div>{%- endif -%}
+    </header>
+    <div class="table-wrap">
+      <table class="compare">
+        <thead><tr><th scope="col"></th><th scope="col" class="compare__us">{{ section.settings.col1 }}</th><th scope="col">{{ section.settings.col2 }}</th><th scope="col">{{ section.settings.col3 }}</th></tr></thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row">{{ block.settings.label }}</th>
+              {%- assign cells = block.settings.c1 | append: '|' | append: block.settings.c2 | append: '|' | append: block.settings.c3 | split: '|' -%}
+              {%- for cell in cells -%}
+                <td{% if forloop.first %} class="compare__us"{% endif %}>
+                  {%- case cell -%}
+                    {%- when 'oui' -%}{% render 'icon', name: 'check' %}<span class="visually-hidden">{{ 'general.yes' | t }}</span>
+                    {%- when 'non' -%}{% render 'icon', name: 'cross' %}<span class="visually-hidden">{{ 'general.no' | t }}</span>
+                    {%- else -%}{{ cell }}
+                  {%- endcase -%}
+                </td>
+              {%- endfor -%}
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+    {%- if section.settings.footnote != blank -%}<p class="compare__note">{{ section.settings.footnote }}</p>{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Tableau comparatif",
+  "class": "section-compare",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Comparer" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Simulateur d'aube ou réveil classique ?" },
+    { "type": "richtext", "id": "intro", "label": "Introduction" },
+    { "type": "text", "id": "col1", "label": "Colonne 1 (nous)", "default": "Lumaube" },
+    { "type": "text", "id": "col2", "label": "Colonne 2", "default": "Réveil classique" },
+    { "type": "text", "id": "col3", "label": "Colonne 3", "default": "Simulateur haut de gamme" },
+    { "type": "text", "id": "footnote", "label": "Note", "default": "Écrivez « oui » ou « non » pour afficher une icône." },
+    { "type": "checkbox", "id": "alt", "label": "Fond alterné", "default": true }
+  ],
+  "blocks": [
+    { "type": "row", "name": "Ligne", "settings": [
+      { "type": "text", "id": "label", "label": "Critère", "default": "Lumière progressive" },
+      { "type": "text", "id": "c1", "label": "Valeur colonne 1", "default": "oui" },
+      { "type": "text", "id": "c2", "label": "Valeur colonne 2", "default": "non" },
+      { "type": "text", "id": "c3", "label": "Valeur colonne 3", "default": "oui" } ] }
+  ],
+  "presets": [{ "name": "Tableau comparatif", "blocks": [{ "type": "row" }, { "type": "row" }, { "type": "row" }] }]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+<section class="trust-bar">
+  <ul class="container trust-bar__list">
+    {%- for block in section.blocks -%}
+      <li {{ block.shopify_attributes }}>{% render 'icon', name: block.settings.icon %}<div><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></div></li>
+    {%- endfor -%}
+  </ul>
+</section>
+{% schema %}
+{
+  "name": "Réassurance",
+  "class": "section-trust",
+  "max_blocks": 4,
+  "blocks": [
+    { "type": "item", "name": "Élément", "settings": [
+      { "type": "select", "id": "icon", "label": "Icône", "default": "truck", "options": [
+        { "value": "truck", "label": "Livraison" }, { "value": "return", "label": "Retour" }, { "value": "lock", "label": "Paiement" }, { "value": "chat", "label": "Support" }, { "value": "gift", "label": "Cadeau" } ] },
+      { "type": "text", "id": "title", "label": "Titre", "default": "Livraison offerte" },
+      { "type": "text", "id": "text", "label": "Texte", "default": "Suivi inclus, en France métropolitaine" } ] }
+  ],
+  "presets": [{ "name": "Réassurance", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }] }]
+}
+{% endschema %}

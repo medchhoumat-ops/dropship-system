@@ -1,0 +1,9 @@
+{%- comment -%} Honest delivery window, computed in the browser from theme settings (business days). {%- endcomment -%}
+<div class="delivery" data-delivery-estimate>
+  {% render 'icon', name: 'calendar' %}
+  <p>
+    {{ 'product.delivery.prefix' | t }}
+    <strong data-delivery-range>{{ 'product.delivery.fallback' | t: min: settings.delivery_days_min, max: settings.delivery_days_max }}</strong>
+    <br><small>{{ 'product.delivery.detail' | t: dispatch: settings.dispatch_days_max }}</small>
+  </p>
+</div>

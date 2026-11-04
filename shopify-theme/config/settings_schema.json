@@ -1,0 +1,57 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Lumaube",
+    "theme_version": "1.0.0",
+    "theme_author": "Lumaube",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Couleurs",
+    "settings": [
+      { "type": "color", "id": "color_bg", "label": "Fond", "default": "#FBF6EE" },
+      { "type": "color", "id": "color_surface", "label": "Cartes / sections alternées", "default": "#F3EEF6" },
+      { "type": "color", "id": "color_text", "label": "Texte", "default": "#1E2238" },
+      { "type": "color", "id": "color_text_soft", "label": "Texte secondaire", "default": "#4A4D63" },
+      { "type": "color", "id": "color_accent", "label": "Accent (boutons)", "default": "#F08A5D" },
+      { "type": "color", "id": "color_accent_2", "label": "Accent secondaire", "default": "#F7C873" },
+      { "type": "color", "id": "color_dark", "label": "Sections sombres", "default": "#1E2238" }
+    ]
+  },
+  {
+    "name": "Typographie",
+    "settings": [
+      { "type": "font_picker", "id": "font_heading", "label": "Titres", "default": "lora_n6" },
+      { "type": "font_picker", "id": "font_body", "label": "Texte", "default": "assistant_n4" },
+      { "type": "range", "id": "body_scale", "label": "Taille du texte", "min": 90, "max": 120, "step": 5, "unit": "%", "default": 100 }
+    ]
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      { "type": "image_picker", "id": "logo", "label": "Logo (laisser vide pour le logo Lumaube intégré)" },
+      { "type": "range", "id": "logo_width", "label": "Largeur du logo", "min": 90, "max": 260, "step": 5, "unit": "px", "default": 150 },
+      { "type": "image_picker", "id": "favicon", "label": "Favicon (32×32)" }
+    ]
+  },
+  {
+    "name": "Livraison & confiance",
+    "settings": [
+      { "type": "range", "id": "dispatch_days_max", "label": "Expédition sous (jours ouvrés, max)", "min": 1, "max": 5, "step": 1, "default": 3 },
+      { "type": "range", "id": "delivery_days_min", "label": "Livraison – minimum (jours ouvrés)", "min": 2, "max": 20, "step": 1, "default": 7 },
+      { "type": "range", "id": "delivery_days_max", "label": "Livraison – maximum (jours ouvrés)", "min": 3, "max": 25, "step": 1, "default": 12 },
+      { "type": "text", "id": "free_shipping_text", "label": "Texte livraison", "default": "Livraison offerte en France métropolitaine" },
+      { "type": "range", "id": "return_days", "label": "Garantie satisfaction (jours)", "min": 14, "max": 60, "step": 1, "default": 30 },
+      { "type": "text", "id": "support_email", "label": "E-mail du service client", "default": "bonjour@lumaube.fr" }
+    ]
+  },
+  {
+    "name": "Réseaux sociaux",
+    "settings": [
+      { "type": "text", "id": "social_instagram", "label": "Instagram (URL)" },
+      { "type": "text", "id": "social_tiktok", "label": "TikTok (URL)" },
+      { "type": "text", "id": "social_pinterest", "label": "Pinterest (URL)" }
+    ]
+  }
+]

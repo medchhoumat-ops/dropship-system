@@ -1,0 +1,17 @@
+<section class="section section--alt" data-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=complementary">
+  {%- if recommendations.performed and recommendations.products_count > 0 -%}
+    <div class="container">
+      <header class="section__head"><h2 class="section__title">{{ section.settings.heading }}</h2></header>
+      <div class="grid grid--4">
+        {%- for rec in recommendations.products -%}{% render 'product-card', product: rec %}{%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+{% schema %}
+{
+  "name": "Recommandations",
+  "class": "section-recommendations",
+  "settings": [{ "type": "text", "id": "heading", "label": "Titre", "default": "Pour compléter votre rituel" }]
+}
+{% endschema %}

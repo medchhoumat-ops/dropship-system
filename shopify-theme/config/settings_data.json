@@ -1,0 +1,21 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_bg": "#FBF6EE",
+      "color_surface": "#F3EEF6",
+      "color_text": "#1E2238",
+      "color_text_soft": "#4A4D63",
+      "color_accent": "#F08A5D",
+      "color_accent_2": "#F7C873",
+      "color_dark": "#1E2238",
+      "font_heading": "lora_n6",
+      "font_body": "assistant_n4",
+      "logo_width": 150,
+      "dispatch_days_max": 3,
+      "delivery_days_min": 7,
+      "delivery_days_max": 12,
+      "return_days": 30
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "accessibility": {
+    "skip_to_content": "Skip to content"
+  },
+  "general": {
+    "tagged_with": "Tagged \"{{ tags }}\"",
+    "page": "Page {{ page }}",
+    "pagination": "Pagination",
+    "yes": "Yes",
+    "no": "No",
+    "product_placeholder": "Coming soon",
+    "404_title": "Page not found",
+    "404_text": "This page doesn't exist or has moved."
+  },
+  "header": {
+    "menu": "Menu",
+    "search": "Search",
+    "cart": "Cart"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "payments": "Accepted payment methods"
+  },
+  "sections": {
+    "announcement": {
+      "label": "Announcements"
+    },
+    "guarantee": {
+      "days": "days"
+    }
+  },
+  "product": {
+    "gallery": "Product gallery",
+    "media_n": "Show image {{ n }}",
+    "quantity": "Quantity",
+    "qty_minus": "Decrease quantity",
+    "qty_plus": "Increase quantity",
+    "add_to_cart": "Add to cart",
+    "add_short": "Add",
+    "sold_out": "Sold out",
+    "tax_included": "Tax included · Free shipping",
+    "delivery": {
+      "prefix": "Order today, estimated delivery",
+      "fallback": "in {{ min }} to {{ max }} business days",
+      "detail": "Ships within {{ dispatch }} business days · tracking by email"
+    },
+    "trust": {
+      "returns": "{{ days }}-day money-back guarantee",
+      "secure": "Secure payment (card, PayPal)",
+      "support": "Friendly customer support"
+    }
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "continue": "Shop products",
+    "remove": "Remove",
+    "total": "Total",
+    "taxes_shipping": "Tax included. Free shipping.",
+    "update": "Update",
+    "checkout": "Check out",
+    "added": "Added to cart",
+    "view": "View cart"
+  },
+  "collections": {
+    "empty": "No products in this collection yet."
+  },
+  "search": {
+    "title": "Search",
+    "label": "Search products",
+    "submit": "Search",
+    "results_count": {
+      "one": "{{ count }} result for \"{{ terms }}\"",
+      "other": "{{ count }} results for \"{{ terms }}\""
+    }
+  },
+  "newsletter": {
+    "email": "Your email",
+    "submit": "Subscribe",
+    "success": "Thanks, you're in!",
+    "legal": "By subscribing you agree to receive our emails. Unsubscribe anytime."
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "order": "Order number (optional)",
+    "message": "Message",
+    "send": "Send",
+    "success": "Thanks! We reply within 1 business day.",
+    "delay": "We reply within 1 business day, Monday to Friday."
+  },
+  "gift_card": {
+    "title": "Your gift card",
+    "expired": "This gift card has expired."
+  }
+}

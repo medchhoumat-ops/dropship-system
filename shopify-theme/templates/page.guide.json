@@ -1,0 +1,145 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "criteria": {
+      "type": "comparison",
+      "settings": {
+        "eyebrow": "Les 6 critères",
+        "heading": "Ce qu'il faut regarder avant d'acheter",
+        "intro": "<p>Pas de classement maison ni de faux « tests » : voici les critères neutres pour comparer n'importe quel simulateur d'aube, y compris le nôtre.</p>",
+        "col1": "Ce qu'on recommande",
+        "col2": "Point d'attention",
+        "col3": "Lumaube",
+        "footnote": "Vérifiez toujours les caractéristiques indiquées sur la fiche du produit.",
+        "alt": true
+      },
+      "blocks": {
+        "c1": {
+          "type": "row",
+          "settings": {
+            "label": "Durée de l'aube",
+            "c1": "Réglable, 20 à 40 min",
+            "c2": "Durée fixe trop courte",
+            "c3": "10 à 60 min"
+          }
+        },
+        "c2": {
+          "type": "row",
+          "settings": {
+            "label": "Couleur de la lumière",
+            "c1": "Du rouge orangé au blanc chaud",
+            "c2": "Lumière bleue/froide",
+            "c3": "oui"
+          }
+        },
+        "c3": {
+          "type": "row",
+          "settings": {
+            "label": "Son de réveil",
+            "c1": "Sons naturels + volume progressif",
+            "c2": "Bip seul",
+            "c3": "oui"
+          }
+        },
+        "c4": {
+          "type": "row",
+          "settings": {
+            "label": "Mode crépuscule",
+            "c1": "Utile pour s'endormir",
+            "c2": "Absent",
+            "c3": "oui"
+          }
+        },
+        "c5": {
+          "type": "row",
+          "settings": {
+            "label": "Écran",
+            "c1": "Luminosité réglable / éteignable la nuit",
+            "c2": "Écran trop lumineux",
+            "c3": "oui"
+          }
+        },
+        "c6": {
+          "type": "row",
+          "settings": {
+            "label": "Prix",
+            "c1": "40 à 80 € pour un bon modèle d'entrée",
+            "c2": "Fausses promotions « -50 % »",
+            "c3": "44,90 €, prix fixe"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Questions sur les simulateurs d'aube",
+        "alt": false
+      },
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Un simulateur d'aube, comment ça marche ?",
+            "answer": "<p>La lampe s'allume au minimum avant l'heure de réveil, puis augmente progressivement jusqu'à pleine intensité, comme un lever de soleil. Un son peut ensuite prendre le relais.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Quelle durée d'aube choisir ?",
+            "answer": "<p>Commencez par 30 minutes. Si vous vous réveillez trop tôt, raccourcissez ; si la lumière ne vous réveille pas, allongez ou rapprochez la lampe.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Où placer le réveil ?",
+            "answer": "<p>Sur la table de chevet, à 40–60 cm de votre tête, orienté vers vous, rideaux fermés.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-ce utile en été ?",
+            "answer": "<p>Oui pour le mode crépuscule et la lampe de chevet, mais c'est en automne et en hiver, quand il fait nuit au réveil, que l'effet se remarque le plus.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    },
+    "cta": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Notre sélection",
+        "heading": "Prêt à essayer ?",
+        "limit": 3,
+        "columns": "3",
+        "alt": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "criteria",
+    "faq",
+    "cta"
+  ]
+}

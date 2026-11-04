@@ -1,0 +1,232 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "Réveil simulateur d'aube"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits": {
+          "type": "benefits",
+          "settings": {
+            "items": "La lumière augmente progressivement avant l'alarme (durée réglable)\nSons naturels doux et radio FM en option\nMode crépuscule pour s'endormir le soir\nFait aussi lampe de chevet tamisable"
+          }
+        },
+        "variants": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "delivery": {
+          "type": "delivery",
+          "settings": {}
+        },
+        "trust": {
+          "type": "trust",
+          "settings": {}
+        },
+        "bundle": {
+          "type": "bundle",
+          "settings": {
+            "heading": "Complétez votre rituel"
+          }
+        },
+        "specs": {
+          "type": "specs",
+          "settings": {
+            "heading": "Caractéristiques"
+          }
+        },
+        "tab0": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Description",
+            "icon": "sun",
+            "source": "description",
+            "content": "",
+            "open": true
+          }
+        },
+        "tab1": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Livraison & suivi",
+            "icon": "truck",
+            "source": "custom",
+            "content": "<p><strong>Livraison offerte</strong> en France métropolitaine. Commande préparée et expédiée sous 24 à 72 h, puis livrée en <strong>7 à 12 jours ouvrés</strong>. Vous recevez un numéro de suivi par e-mail dès l'expédition.</p>",
+            "open": false
+          }
+        },
+        "tab2": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Retours & garanties",
+            "icon": "return",
+            "source": "custom",
+            "content": "<p><strong>Satisfait ou remboursé 30 jours</strong> après réception. Vous bénéficiez aussi du droit de rétractation de 14 jours et de la garantie légale de conformité de 2 ans. Produit défectueux : le retour est à notre charge.</p>",
+            "open": false
+          }
+        },
+        "tab3": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Conseils d'utilisation",
+            "icon": "leaf",
+            "source": "custom",
+            "content": "<p>Placez le réveil à 40–60 cm de votre tête, orienté vers vous. Commencez par une aube de 30 minutes et une alarme sonore douce, puis ajustez selon vos matins. Laissez les rideaux fermés pour profiter de l'effet.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "title",
+        "price",
+        "benefits",
+        "variants",
+        "buy",
+        "delivery",
+        "trust",
+        "bundle",
+        "specs",
+        "tab0",
+        "tab1",
+        "tab2",
+        "tab3"
+      ],
+      "settings": {}
+    },
+    "steps": {
+      "type": "steps",
+      "settings": {
+        "eyebrow": "Mode d'emploi",
+        "heading": "Votre premier matin avec la lumière",
+        "alt": true
+      },
+      "blocks": {
+        "s0": {
+          "type": "step",
+          "settings": {
+            "icon": "clock",
+            "title": "Réglez l'heure",
+            "text": "Indiquez votre heure de réveil et la durée de l'aube (10 à 60 min)."
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "icon": "sun",
+            "title": "Laissez la lumière monter",
+            "text": "La lampe passe du rouge orangé au blanc chaud, très progressivement."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "icon": "sound",
+            "title": "Réveil en douceur",
+            "text": "À l'heure choisie, un son naturel ou la radio prend le relais."
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "Questions fréquentes",
+        "heading": "Avant de commander",
+        "alt": false
+      },
+      "blocks": {
+        "q0": {
+          "type": "qa",
+          "settings": {
+            "question": "Quelle est la différence avec un réveil normal ?",
+            "answer": "<p>Un réveil classique sonne d'un coup. Ici, la lumière augmente progressivement pendant la durée choisie, puis le son arrive en douceur.</p>"
+          }
+        },
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-ce assez lumineux pour une grande chambre ?",
+            "answer": "<p>Il est conçu pour éclairer le chevet et une chambre standard. Placez-le près du lit, orienté vers vous, pour un meilleur effet.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Puis-je l'utiliser sans le son ?",
+            "answer": "<p>Oui, vous pouvez choisir un réveil uniquement lumineux, ou baisser le volume au minimum.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Comment est-il alimenté ?",
+            "answer": "<p>Par câble USB fourni. Les détails exacts (adaptateur, autonomie de sauvegarde) sont indiqués dans les caractéristiques.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-ce un dispositif médical ?",
+            "answer": "<p>Non. C'est un réveil et une lampe d'ambiance. En cas de troubles du sommeil, demandez conseil à un professionnel de santé.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    },
+    "reviews": {
+      "type": "apps",
+      "settings": {}
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "30 jours pour l'adopter",
+        "text": "<p>Essayez-le chez vous pendant 30 jours après réception. S'il ne vous convient pas, écrivez-nous et nous vous remboursons. Produit défectueux : le retour est à notre charge.</p>"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Pour compléter votre rituel"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "steps",
+    "faq",
+    "reviews",
+    "guarantee",
+    "recommendations"
+  ]
+}

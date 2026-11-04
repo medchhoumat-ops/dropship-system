@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container">
+    <h1 class="section__title">{{ 'search.title' | t }}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+      <label class="visually-hidden" for="Search-{{ section.id }}">{{ 'search.label' | t }}</label>
+      <input id="Search-{{ section.id }}" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.label' | t }}">
+      <input type="hidden" name="options[prefix]" value="last">
+      <button class="btn btn--primary" type="submit">{{ 'search.submit' | t }}</button>
+    </form>
+    {%- if search.performed -%}
+      <p>{{ 'search.results_count' | t: count: search.results_count, terms: search.terms }}</p>
+      <div class="grid grid--4">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {% render 'product-card', product: item %}
+          {%- else -%}
+            <article class="card card--text"><h3 class="card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3></article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "Recherche", "class": "section-main-search" }
+{% endschema %}

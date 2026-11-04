@@ -1,0 +1,96 @@
+{
+  "accessibility": {
+    "skip_to_content": "Aller au contenu"
+  },
+  "general": {
+    "tagged_with": "Étiqueté « {{ tags }} »",
+    "page": "Page {{ page }}",
+    "pagination": "Pagination",
+    "yes": "Oui",
+    "no": "Non",
+    "product_placeholder": "Produit à venir",
+    "404_title": "Page introuvable",
+    "404_text": "Cette page n'existe pas ou a été déplacée."
+  },
+  "header": {
+    "menu": "Menu",
+    "search": "Rechercher",
+    "cart": "Panier"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "payments": "Moyens de paiement acceptés"
+  },
+  "sections": {
+    "announcement": {
+      "label": "Annonces"
+    },
+    "guarantee": {
+      "days": "jours"
+    }
+  },
+  "product": {
+    "gallery": "Galerie du produit",
+    "media_n": "Afficher l'image {{ n }}",
+    "quantity": "Quantité",
+    "qty_minus": "Diminuer la quantité",
+    "qty_plus": "Augmenter la quantité",
+    "add_to_cart": "Ajouter au panier",
+    "add_short": "Ajouter",
+    "sold_out": "Épuisé",
+    "tax_included": "TVA incluse · Livraison offerte",
+    "delivery": {
+      "prefix": "Commandez aujourd'hui, livraison estimée",
+      "fallback": "sous {{ min }} à {{ max }} jours ouvrés",
+      "detail": "Expédié sous {{ dispatch }} jours ouvrés · suivi par e-mail"
+    },
+    "trust": {
+      "returns": "Satisfait ou remboursé {{ days }} jours",
+      "secure": "Paiement sécurisé (carte, PayPal)",
+      "support": "Service client en français"
+    }
+  },
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide.",
+    "continue": "Voir les produits",
+    "remove": "Retirer",
+    "total": "Total",
+    "taxes_shipping": "TVA incluse. Livraison offerte en France métropolitaine.",
+    "update": "Mettre à jour",
+    "checkout": "Passer commande",
+    "added": "Ajouté au panier",
+    "view": "Voir le panier"
+  },
+  "collections": {
+    "empty": "Aucun produit dans cette collection pour le moment."
+  },
+  "search": {
+    "title": "Recherche",
+    "label": "Rechercher un produit",
+    "submit": "Rechercher",
+    "results_count": {
+      "one": "{{ count }} résultat pour « {{ terms }} »",
+      "other": "{{ count }} résultats pour « {{ terms }} »"
+    }
+  },
+  "newsletter": {
+    "email": "Votre e-mail",
+    "submit": "S'inscrire",
+    "success": "Merci, c'est noté !",
+    "legal": "En vous inscrivant, vous acceptez de recevoir nos e-mails. Désinscription à tout moment."
+  },
+  "contact": {
+    "name": "Nom",
+    "email": "E-mail",
+    "order": "Numéro de commande (facultatif)",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": "Merci ! Nous vous répondons sous 24 h ouvrées.",
+    "delay": "Réponse sous 24 h ouvrées, du lundi au vendredi."
+  },
+  "gift_card": {
+    "title": "Votre carte cadeau",
+    "expired": "Cette carte cadeau a expiré."
+  }
+}

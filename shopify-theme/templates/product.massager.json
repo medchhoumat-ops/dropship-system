@@ -1,0 +1,224 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "Massage du cuir chevelu"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits": {
+          "type": "benefits",
+          "settings": {
+            "items": "Têtes souples qui massent sans tirer les cheveux\nPlusieurs modes et intensités\nRechargeable, sans fil, format compact\nUn moment de détente à s'offrir après la journée"
+          }
+        },
+        "variants": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "delivery": {
+          "type": "delivery",
+          "settings": {}
+        },
+        "trust": {
+          "type": "trust",
+          "settings": {}
+        },
+        "bundle": {
+          "type": "bundle",
+          "settings": {
+            "heading": "Complétez votre rituel"
+          }
+        },
+        "specs": {
+          "type": "specs",
+          "settings": {
+            "heading": "Caractéristiques"
+          }
+        },
+        "tab0": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Description",
+            "icon": "leaf",
+            "source": "description",
+            "content": "",
+            "open": true
+          }
+        },
+        "tab1": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Livraison & suivi",
+            "icon": "truck",
+            "source": "custom",
+            "content": "<p><strong>Livraison offerte</strong> en France métropolitaine. Commande préparée et expédiée sous 24 à 72 h, puis livrée en <strong>7 à 12 jours ouvrés</strong>. Vous recevez un numéro de suivi par e-mail dès l'expédition.</p>",
+            "open": false
+          }
+        },
+        "tab2": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Retours & garanties",
+            "icon": "return",
+            "source": "custom",
+            "content": "<p><strong>Satisfait ou remboursé 30 jours</strong> après réception. Vous bénéficiez aussi du droit de rétractation de 14 jours et de la garantie légale de conformité de 2 ans. Produit défectueux : le retour est à notre charge.</p>",
+            "open": false
+          }
+        },
+        "tab3": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Entretien",
+            "icon": "check",
+            "source": "custom",
+            "content": "<p>Retirez les têtes de massage pour les nettoyer à l'eau tiède et séchez-les avant de les remettre. Ne plongez pas la partie moteur dans l'eau si le produit n'est pas indiqué étanche.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "title",
+        "price",
+        "benefits",
+        "variants",
+        "buy",
+        "delivery",
+        "trust",
+        "bundle",
+        "specs",
+        "tab0",
+        "tab1",
+        "tab2",
+        "tab3"
+      ],
+      "settings": {}
+    },
+    "steps": {
+      "type": "steps",
+      "settings": {
+        "eyebrow": "Mode d'emploi",
+        "heading": "Votre pause détente en 3 gestes",
+        "alt": true
+      },
+      "blocks": {
+        "s0": {
+          "type": "step",
+          "settings": {
+            "icon": "leaf",
+            "title": "Choisissez le mode",
+            "text": "Démarrez doucement avec l'intensité la plus basse."
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "icon": "clock",
+            "title": "5 à 10 minutes",
+            "text": "Déplacez lentement le masseur sur le cuir chevelu, la nuque et les épaules."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "icon": "moon",
+            "title": "Le soir, de préférence",
+            "text": "Associez-le à une lumière tamisée pour bien décrocher."
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "Questions fréquentes",
+        "heading": "Avant de commander",
+        "alt": false
+      },
+      "blocks": {
+        "q0": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-ce que ça abîme les cheveux ?",
+            "answer": "<p>Les têtes sont souples et ne tirent pas sur les cheveux. Utilisez une intensité douce et évitez les cheveux mouillés si le produit n'est pas étanche.</p>"
+          }
+        },
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Combien de temps dure la batterie ?",
+            "answer": "<p>L'autonomie dépend du mode utilisé ; elle est indiquée dans les caractéristiques du produit.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Puis-je l'offrir ?",
+            "answer": "<p>Oui, c'est un cadeau apprécié.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-ce un traitement contre la chute des cheveux ?",
+            "answer": "<p>Non. C'est un appareil de massage pour la détente, pas un traitement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ]
+    },
+    "reviews": {
+      "type": "apps",
+      "settings": {}
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "30 jours pour l'adopter",
+        "text": "<p>Essayez-le chez vous pendant 30 jours après réception. S'il ne vous convient pas, écrivez-nous et nous vous remboursons. Produit défectueux : le retour est à notre charge.</p>"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Pour compléter votre rituel"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "steps",
+    "faq",
+    "reviews",
+    "guarantee",
+    "recommendations"
+  ]
+}

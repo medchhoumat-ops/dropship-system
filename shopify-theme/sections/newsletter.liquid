@@ -1,0 +1,26 @@
+<section class="newsletter">
+  <div class="container container--narrow newsletter__inner">
+    <h2 class="section__title">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+    {%- form 'customer', class: 'newsletter__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label class="visually-hidden" for="NewsletterEmail-{{ section.id }}">{{ 'newsletter.email' | t }}</label>
+      <input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ 'newsletter.email' | t }}">
+      <button class="btn btn--primary" type="submit">{{ 'newsletter.submit' | t }}</button>
+      {%- if form.posted_successfully? -%}<p class="newsletter__ok" role="status">{{ 'newsletter.success' | t }}</p>{%- endif -%}
+      {%- if form.errors -%}<p class="newsletter__err" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>{%- endif -%}
+    {%- endform -%}
+    <small>{{ 'newsletter.legal' | t }}</small>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Newsletter",
+  "class": "section-newsletter",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Des matins plus doux, une fois par mois" },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Conseils sommeil, nouveautés et offres. Pas de spam, désinscription en un clic." }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

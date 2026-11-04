@@ -1,0 +1,1 @@
+{ "sections": { "main": { "type": "main-article", "settings": {} }, "products": { "type": "featured-collection", "settings": { "eyebrow": "À découvrir", "heading": "Nos objets pour mieux dormir et mieux se réveiller", "limit": 3, "columns": "3", "alt": true } } }, "order": ["main", "products"] }

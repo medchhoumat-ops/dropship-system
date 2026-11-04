@@ -1,0 +1,16 @@
+{
+  "type": "header",
+  "name": "En-tête",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "msg1": { "type": "message", "settings": { "text": "Livraison offerte en France · Suivi inclus", "link": "" } },
+        "msg2": { "type": "message", "settings": { "text": "Satisfait ou remboursé 30 jours", "link": "" } }
+      },
+      "block_order": ["msg1", "msg2"]
+    },
+    "header": { "type": "header", "settings": { "menu": "main-menu" } }
+  },
+  "order": ["announcement", "header"]
+}

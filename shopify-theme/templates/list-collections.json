@@ -1,0 +1,1 @@
+{ "sections": { "main": { "type": "featured-collection", "settings": { "eyebrow": "", "heading": "Tous nos produits", "limit": 12, "columns": "3", "alt": false } } }, "order": ["main"] }

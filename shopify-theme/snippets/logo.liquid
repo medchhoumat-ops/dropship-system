@@ -1,0 +1,8 @@
+{%- comment -%} Renders the uploaded logo, or the built-in Lumaube SVG. Pass variant: 'white' on dark backgrounds. {%- endcomment -%}
+{%- if settings.logo != blank and variant != 'white' -%}
+  {{ settings.logo | image_url: width: 520 | image_tag: alt: shop.name, class: 'logo__img', loading: 'eager', widths: '260, 520' }}
+{%- elsif variant == 'white' -%}
+  <img class="logo__img" src="{{ 'lumaube-logo-white.svg' | asset_url }}" alt="{{ shop.name }}" width="366" height="96">
+{%- else -%}
+  <img class="logo__img" src="{{ 'lumaube-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="366" height="96">
+{%- endif -%}

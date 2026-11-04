@@ -1,0 +1,44 @@
+<section class="section{% if section.settings.alt %} section--alt{% endif %}">
+  <div class="container container--narrow">
+    <header class="section__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="section__title">{{ section.settings.heading }}</h2>
+    </header>
+    {%- for block in section.blocks -%}
+      <details class="accordion" {{ block.shopify_attributes }}>
+        <summary><span>{{ block.settings.question }}</span></summary>
+        <div class="accordion__content rte">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</section>
+{%- if section.blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for block in section.blocks -%}
+    { "@type": "Question", "name": {{ block.settings.question | json }}, "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | json }} } }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "FAQ",
+  "class": "section-faq",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Questions fréquentes" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Vous vous demandez…" },
+    { "type": "checkbox", "id": "alt", "label": "Fond alterné", "default": false }
+  ],
+  "blocks": [
+    { "type": "qa", "name": "Question", "settings": [
+      { "type": "text", "id": "question", "label": "Question", "default": "Quand vais-je recevoir ma commande ?" },
+      { "type": "richtext", "id": "answer", "label": "Réponse", "default": "<p>Votre commande est expédiée sous 24 à 72 h, puis livrée en 7 à 12 jours ouvrés avec un numéro de suivi.</p>" } ] }
+  ],
+  "presets": [{ "name": "FAQ", "blocks": [{ "type": "qa" }] }]
+}
+{% endschema %}

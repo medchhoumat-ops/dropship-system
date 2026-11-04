@@ -1,0 +1,20 @@
+<section class="guarantee">
+  <div class="container guarantee__inner">
+    <div class="guarantee__seal" aria-hidden="true"><span>{{ settings.return_days }}</span><small>{{ 'sections.guarantee.days' | t }}</small></div>
+    <div>
+      <h2 class="section__title">{{ section.settings.heading }}</h2>
+      <div class="rte">{{ section.settings.text }}</div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Garantie",
+  "class": "section-guarantee",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Satisfait ou remboursé" },
+    { "type": "richtext", "id": "text", "label": "Texte", "default": "<p>Vous avez 30 jours après réception pour l'essayer chez vous. S'il ne vous convient pas, écrivez-nous : on vous explique le retour et on vous rembourse.</p>" }
+  ],
+  "presets": [{ "name": "Garantie" }]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+<section class="section{% if section.settings.alt %} section--alt{% endif %}">
+  <div class="container container--narrow rte{% if section.settings.center %} center{% endif %}">
+    {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="section__title">{{ section.settings.heading }}</h2>{%- endif -%}
+    {{ section.settings.text }}
+    {%- if section.settings.button_label != blank -%}<p><a class="btn btn--primary" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a></p>{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Texte",
+  "class": "section-rich-text",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Notre promesse" },
+    { "type": "richtext", "id": "text", "label": "Texte", "default": "<p>Peu de produits, bien choisis, décrits honnêtement.</p>" },
+    { "type": "text", "id": "button_label", "label": "Bouton" },
+    { "type": "url", "id": "button_link", "label": "Lien" },
+    { "type": "checkbox", "id": "center", "label": "Centré", "default": true },
+    { "type": "checkbox", "id": "alt", "label": "Fond alterné", "default": false }
+  ],
+  "presets": [{ "name": "Texte" }]
+}
+{% endschema %}

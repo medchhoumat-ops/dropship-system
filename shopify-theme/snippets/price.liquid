@@ -1,0 +1,18 @@
+{%- comment -%} Usage: {% render 'price', product: product, variant: variant %}. Compare-at shown only when really higher. {%- endcomment -%}
+{%- liquid
+  assign target = variant | default: product.selected_or_first_available_variant
+  assign on_sale = false
+  if target.compare_at_price > target.price
+    assign on_sale = true
+  endif
+-%}
+<div class="price{% if on_sale %} price--sale{% endif %}" data-price>
+  <span class="price__current">{{ target.price | money }}</span>
+  {%- if on_sale -%}
+    <s class="price__compare">{{ target.compare_at_price | money }}</s>
+    <span class="badge badge--sale">-{{ target.compare_at_price | minus: target.price | times: 100 | divided_by: target.compare_at_price }}&nbsp;%</span>
+  {%- endif -%}
+  {%- if target.unit_price_measurement -%}
+    <small class="price__unit">{{ target.unit_price | money }}/{{ target.unit_price_measurement.reference_unit }}</small>
+  {%- endif -%}
+</div>

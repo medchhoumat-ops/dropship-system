@@ -1,0 +1,270 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "style": "light",
+        "eyebrow": "Réveil simulateur d'aube",
+        "heading": "Réveillez-vous avec la lumière, pas avec un bip.",
+        "text": "<p>Pendant 10 à 60 minutes avant votre alarme, la lumière monte doucement, comme un lever de soleil dans la chambre. Les matins d'hiver deviennent plus doux.</p>",
+        "button_label": "Découvrir le réveil",
+        "button_link": "",
+        "button2_label": "Comment choisir ?",
+        "button2_link": "/pages/guide-simulateur-d-aube",
+        "note": "Livraison offerte · Suivi inclus · Satisfait ou remboursé 30 jours"
+      }
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Livraison offerte",
+            "text": "Suivi inclus, livré en 7 à 12 jours ouvrés"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "30 jours pour essayer",
+            "text": "Satisfait ou remboursé"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Paiement sécurisé",
+            "text": "Carte bancaire ou PayPal"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Service client en français",
+            "text": "Réponse sous 24 h ouvrées"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "products": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "La sélection",
+        "heading": "Pour des matins plus doux et des soirées plus calmes",
+        "limit": 4,
+        "columns": "4",
+        "alt": false
+      }
+    },
+    "steps": {
+      "type": "steps",
+      "settings": {
+        "eyebrow": "Comment ça marche",
+        "heading": "Un lever de soleil, chaque matin",
+        "alt": true
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "icon": "clock",
+            "title": "1. Réglez votre heure",
+            "text": "Choisissez l'heure du réveil et la durée de l'aube : de 10 à 60 minutes."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "icon": "sun",
+            "title": "2. La lumière monte",
+            "text": "Du rouge orangé au blanc chaud, la chambre s'éclaire progressivement."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "icon": "sound",
+            "title": "3. Un son doux, si vous voulez",
+            "text": "Chants d'oiseaux, vagues ou radio FM prennent le relais à l'heure choisie."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "evening": {
+      "type": "image-with-text",
+      "settings": {
+        "eyebrow": "Rituel du soir",
+        "heading": "Le soir aussi, on ralentit",
+        "text": "<p>Le mode crépuscule fait baisser la lumière doucement pendant que vous lisez. Ajoutez un masque en soie pour le noir complet, et un massage du cuir chevelu pour décrocher de la journée.</p>",
+        "button_label": "Voir le rituel du soir",
+        "button_link": "/collections/all",
+        "reverse": true,
+        "alt": false
+      }
+    },
+    "compare": {
+      "type": "comparison",
+      "settings": {
+        "eyebrow": "Comparer",
+        "heading": "Simulateur d'aube ou réveil classique ?",
+        "col1": "Lumaube",
+        "col2": "Réveil classique",
+        "col3": "Simulateur haut de gamme",
+        "footnote": "Prix indicatifs constatés en France en novembre 2026.",
+        "alt": true
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Lumière progressive avant l'alarme",
+            "c1": "oui",
+            "c2": "non",
+            "c3": "oui"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Durée de l'aube réglable",
+            "c1": "10 à 60 min",
+            "c2": "non",
+            "c3": "oui"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Sons naturels / radio FM",
+            "c1": "oui",
+            "c2": "selon modèle",
+            "c3": "oui"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Mode crépuscule le soir",
+            "c1": "oui",
+            "c2": "non",
+            "c3": "oui"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Prix",
+            "c1": "44,90 €",
+            "c2": "variable",
+            "c3": "80 à 220 €"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "Questions fréquentes",
+        "heading": "Vous vous demandez…",
+        "alt": false
+      },
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Quand vais-je recevoir ma commande ?",
+            "answer": "<p>Nous expédions sous 24 à 72 h. La livraison prend ensuite 7 à 12 jours ouvrés en France métropolitaine, avec un numéro de suivi envoyé par e-mail.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "La livraison est-elle vraiment gratuite ?",
+            "answer": "<p>Oui, en France métropolitaine, sans minimum d'achat.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Et si le réveil ne me convient pas ?",
+            "answer": "<p>Vous avez 30 jours après réception pour l'essayer. Écrivez-nous à notre adresse e-mail : nous vous expliquons le retour et vous remboursons dès réception.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-ce que ça aide vraiment à se réveiller ?",
+            "answer": "<p>Beaucoup de personnes trouvent plus agréable d'être réveillées par une lumière qui augmente progressivement plutôt que par une sonnerie soudaine. Ce n'est pas un dispositif médical : si vous avez des troubles du sommeil, parlez-en à un professionnel de santé.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Quel paiement acceptez-vous ?",
+            "answer": "<p>Carte bancaire et PayPal, via une page de paiement sécurisée. Nous ne voyons jamais vos données bancaires.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "Comment vous contacter ?",
+            "answer": "<p>Par e-mail, en français, du lundi au vendredi. Nous répondons sous 24 h ouvrées.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ]
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "Satisfait ou remboursé, 30 jours",
+        "text": "<p>Essayez-le chez vous pendant 30 jours après réception. S'il ne vous convient pas, écrivez-nous : on s'occupe du reste. Produit défectueux ? Le retour est à notre charge.</p>"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "products",
+    "steps",
+    "evening",
+    "compare",
+    "faq",
+    "guarantee",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="container container--narrow">
+    <h1 class="section__title">{{ 'cart.title' | t }}</h1>
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" class="cart" novalidate>
+        <ul class="cart__items">
+          {%- for item in cart.items -%}
+            <li class="cart__item">
+              {%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'cart__img', alt: item.title | escape }}{%- endif -%}
+              <div class="cart__info">
+                <a href="{{ item.url }}">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}<small>{{ item.variant.title }}</small>{%- endunless -%}
+                <span>{{ item.final_price | money }}</span>
+              </div>
+              <label class="qty qty--small">
+                <span class="visually-hidden">{{ 'product.quantity' | t }}</span>
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric">
+              </label>
+              <a class="cart__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div class="cart__summary">
+          {%- for discount in cart.cart_level_discount_applications -%}
+            <p>{{ discount.title }} : −{{ discount.total_allocated_amount | money }}</p>
+          {%- endfor -%}
+          <p class="cart__total">{{ 'cart.total' | t }} <strong>{{ cart.total_price | money_with_currency }}</strong></p>
+          <p class="cart__note">{{ 'cart.taxes_shipping' | t }}</p>
+          {% render 'delivery-estimate' %}
+          <div class="cart__buttons">
+            <button type="submit" name="update" class="btn btn--ghost">{{ 'cart.update' | t }}</button>
+            <button type="submit" name="checkout" class="btn btn--primary">{{ 'cart.checkout' | t }}</button>
+          </div>
+          {%- if additional_checkout_buttons -%}<div class="cart__dynamic">{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
+        </div>
+      </form>
+    {%- else -%}
+      <p>{{ 'cart.empty' | t }}</p>
+      <p><a class="btn btn--primary" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "Panier", "class": "section-main-cart" }
+{% endschema %}

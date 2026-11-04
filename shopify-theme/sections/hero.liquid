@@ -1,0 +1,44 @@
+<section class="hero{% if section.settings.style == 'dark' %} hero--dark{% endif %}">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1 class="hero__title">{{ section.settings.heading }}</h1>
+      <div class="hero__sub rte">{{ section.settings.text }}</div>
+      <div class="hero__ctas">
+        {%- if section.settings.button_label != blank -%}
+          <a class="btn btn--primary" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button2_label != blank -%}
+          <a class="btn btn--ghost" href="{{ section.settings.button2_link }}">{{ section.settings.button2_label }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.note != blank -%}<p class="hero__note">{{ section.settings.note }}</p>{%- endif -%}
+    </div>
+    <div class="hero__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 50vw, 100vw', alt: section.settings.image.alt | default: section.settings.heading | escape }}
+      {%- else -%}
+        <div class="hero__placeholder" aria-hidden="true"><div class="sunrise"></div></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Bannière principale",
+  "class": "section-hero",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Style", "default": "light", "options": [{ "value": "light", "label": "Clair" }, { "value": "dark", "label": "Sombre" }] },
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Nouveau · Réveil simulateur d'aube" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Réveillez-vous avec la lumière, pas avec un bip." },
+    { "type": "richtext", "id": "text", "label": "Texte", "default": "<p>La lumière augmente doucement pendant 10 à 60 minutes avant votre alarme, comme un lever de soleil dans la chambre.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "button_label", "label": "Bouton 1", "default": "Découvrir le réveil" },
+    { "type": "url", "id": "button_link", "label": "Lien bouton 1" },
+    { "type": "text", "id": "button2_label", "label": "Bouton 2", "default": "Comment choisir ?" },
+    { "type": "url", "id": "button2_link", "label": "Lien bouton 2" },
+    { "type": "text", "id": "note", "label": "Petite note", "default": "Livraison offerte · Satisfait ou remboursé 30 jours" }
+  ],
+  "presets": [{ "name": "Bannière principale" }]
+}
+{% endschema %}

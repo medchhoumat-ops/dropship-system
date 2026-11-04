@@ -1,0 +1,234 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign form_id = 'product-form-' | append: section.id
+-%}
+<section class="product container" data-product data-section="{{ section.id }}">
+  <div class="product__media" data-gallery>
+    <div class="gallery__main">
+      {%- for media in product.media -%}
+        <div class="gallery__slide{% if forloop.first %} is-active{% endif %}" data-media-id="{{ media.id }}">
+          {%- case media.media_type -%}
+            {%- when 'image' -%}
+              {{ media | image_url: width: 1400 | image_tag: loading: 'eager', widths: '500, 800, 1100, 1400', sizes: '(min-width: 990px) 55vw, 100vw', alt: media.alt | default: product.title | escape }}
+            {%- when 'video' -%}
+              {{ media | video_tag: controls: true, muted: true, playsinline: true, image_size: '1100x' }}
+            {%- when 'external_video' -%}
+              {{ media | external_video_tag }}
+            {%- else -%}
+              {{ media | media_tag }}
+          {%- endcase -%}
+        </div>
+      {%- else -%}
+        <div class="gallery__slide is-active">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+      {%- endfor -%}
+    </div>
+    {%- if product.media.size > 1 -%}
+      <ul class="gallery__thumbs" aria-label="{{ 'product.gallery' | t }}">
+        {%- for media in product.media -%}
+          <li>
+            <button type="button" class="gallery__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="{{ 'product.media_n' | t: n: forloop.index }}">
+              {{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+
+  <div class="product__info">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+
+        {%- when 'eyebrow' -%}
+          <p class="eyebrow" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+
+        {%- when 'title' -%}
+          <h1 class="product__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
+          {%- if product.metafields.lumaube.tagline != blank -%}
+            <p class="product__tagline">{{ product.metafields.lumaube.tagline }}</p>
+          {%- endif -%}
+
+        {%- when 'price' -%}
+          <div class="product__price" {{ block.shopify_attributes }}>
+            {% render 'price', product: product, variant: current_variant %}
+            <p class="product__tax">{{ 'product.tax_included' | t }}</p>
+          </div>
+
+        {%- when 'benefits' -%}
+          {%- assign lines = block.settings.items | newline_to_br | split: '<br />' -%}
+          <ul class="benefits" {{ block.shopify_attributes }}>
+            {%- for line in lines -%}
+              {%- assign item = line | strip -%}
+              {%- if item != blank -%}<li>{% render 'icon', name: 'check' %}<span>{{ item }}</span></li>{%- endif -%}
+            {%- endfor -%}
+          </ul>
+
+        {%- when 'variant_picker' -%}
+          {%- unless product.has_only_default_variant -%}
+            <div class="variants" {{ block.shopify_attributes }}>
+              {%- for option in product.options_with_values -%}
+                <fieldset class="variants__group">
+                  <legend>{{ option.name }}</legend>
+                  {%- for value in option.values -%}
+                    <label class="pill">
+                      <input type="radio" name="option{{ option.position }}" value="{{ value | escape }}" form="{{ form_id }}" data-option{% if option.selected_value == value %} checked{% endif %}>
+                      <span>{{ value }}</span>
+                    </label>
+                  {%- endfor -%}
+                </fieldset>
+              {%- endfor -%}
+              <script type="application/json" data-variants>{{ product.variants | json }}</script>
+            </div>
+          {%- endunless -%}
+
+        {%- when 'buy_buttons' -%}
+          <div class="buy" {{ block.shopify_attributes }}>
+            {%- form 'product', product, id: form_id, class: 'buy__form', data-product-form: '' -%}
+              <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+              <div class="buy__row">
+                <label class="qty">
+                  <span class="visually-hidden">{{ 'product.quantity' | t }}</span>
+                  <button type="button" class="qty__btn" data-qty="-1" aria-label="{{ 'product.qty_minus' | t }}">−</button>
+                  <input type="number" name="quantity" value="1" min="1" max="10" inputmode="numeric">
+                  <button type="button" class="qty__btn" data-qty="1" aria-label="{{ 'product.qty_plus' | t }}">+</button>
+                </label>
+                <button type="submit" name="add" class="btn btn--primary btn--block" data-add-button{% unless current_variant.available %} disabled{% endunless %}>
+                  {%- if current_variant.available -%}{{ 'product.add_to_cart' | t }}{%- else -%}{{ 'product.sold_out' | t }}{%- endif -%}
+                </button>
+              </div>
+              {%- if block.settings.show_dynamic_checkout -%}
+                <div class="buy__dynamic">{{ form | payment_button }}</div>
+              {%- endif -%}
+              <p class="buy__error" data-form-error hidden></p>
+            {%- endform -%}
+          </div>
+
+        {%- when 'delivery' -%}
+          <div {{ block.shopify_attributes }}>{% render 'delivery-estimate' %}</div>
+
+        {%- when 'trust' -%}
+          <ul class="trust-mini" {{ block.shopify_attributes }}>
+            <li>{% render 'icon', name: 'truck' %}<span>{{ settings.free_shipping_text }}</span></li>
+            <li>{% render 'icon', name: 'return' %}<span>{{ 'product.trust.returns' | t: days: settings.return_days }}</span></li>
+            <li>{% render 'icon', name: 'lock' %}<span>{{ 'product.trust.secure' | t }}</span></li>
+            <li>{% render 'icon', name: 'chat' %}<span>{{ 'product.trust.support' | t }}</span></li>
+          </ul>
+
+        {%- when 'bundle' -%}
+          {%- assign other = block.settings.product -%}
+          {%- if other != blank and other.available -%}
+            <div class="bundle" {{ block.shopify_attributes }}>
+              <p class="bundle__title">{% render 'icon', name: 'gift' %} {{ block.settings.heading }}</p>
+              <div class="bundle__row">
+                {%- if other.featured_media -%}
+                  {{ other.featured_media | image_url: width: 160 | image_tag: loading: 'lazy', class: 'bundle__img', alt: other.title | escape }}
+                {%- endif -%}
+                <div class="bundle__text">
+                  <a href="{{ other.url }}">{{ other.title }}</a>
+                  {% render 'price', product: other %}
+                </div>
+                <button type="button" class="btn btn--ghost btn--small" data-quick-add="{{ other.selected_or_first_available_variant.id }}">{{ 'product.add_short' | t }}</button>
+              </div>
+            </div>
+          {%- endif -%}
+
+        {%- when 'specs' -%}
+          {%- assign spec_source = product.metafields.lumaube.specs.value | default: block.settings.specs -%}
+          {%- if spec_source != blank -%}
+            {%- assign rows = spec_source | newline_to_br | split: '<br />' -%}
+            <div class="specs" {{ block.shopify_attributes }}>
+              <h2 class="specs__title">{{ block.settings.heading }}</h2>
+              <table>
+                {%- for row in rows -%}
+                  {%- assign parts = row | strip | split: ':' -%}
+                  {%- if parts.size > 1 -%}
+                    <tr><th scope="row">{{ parts.first | strip }}</th><td>{{ row | strip | remove_first: parts.first | remove_first: ':' | strip }}</td></tr>
+                  {%- endif -%}
+                {%- endfor -%}
+              </table>
+            </div>
+          {%- endif -%}
+
+        {%- when 'collapsible' -%}
+          <details class="accordion" {{ block.shopify_attributes }}{% if block.settings.open %} open{% endif %}>
+            <summary>{% render 'icon', name: block.settings.icon %}<span>{{ block.settings.heading }}</span></summary>
+            <div class="accordion__content rte">
+              {%- if block.settings.source == 'description' -%}
+                {{ product.description }}
+              {%- elsif block.settings.page != blank -%}
+                {{ block.settings.page.content }}
+              {%- else -%}
+                {{ block.settings.content }}
+              {%- endif -%}
+            </div>
+          </details>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<div class="sticky-buy" data-sticky-buy hidden>
+  <div class="container sticky-buy__inner">
+    <div class="sticky-buy__text">
+      <strong>{{ product.title }}</strong>
+      {% render 'price', product: product, variant: current_variant %}
+    </div>
+    <button type="submit" form="{{ form_id }}" class="btn btn--primary"{% unless current_variant.available %} disabled{% endunless %}>{{ 'product.add_to_cart' | t }}</button>
+  </div>
+</div>
+
+<script type="application/ld+json">{{ product | structured_data }}</script>
+
+{% schema %}
+{
+  "name": "Fiche produit",
+  "class": "section-main-product",
+  "blocks": [
+    { "type": "@app" },
+    { "type": "eyebrow", "name": "Sur-titre", "limit": 1, "settings": [{ "type": "text", "id": "text", "label": "Texte", "default": "Rituel du matin" }] },
+    { "type": "title", "name": "Titre", "limit": 1 },
+    { "type": "price", "name": "Prix", "limit": 1 },
+    {
+      "type": "benefits", "name": "Bénéfices", "limit": 2,
+      "settings": [{ "type": "textarea", "id": "items", "label": "Un bénéfice par ligne", "default": "Lumière qui augmente progressivement avant l'alarme\nSons doux et radio en option\nUtilisable aussi comme lampe de chevet" }]
+    },
+    { "type": "variant_picker", "name": "Variantes", "limit": 1 },
+    {
+      "type": "buy_buttons", "name": "Boutons d'achat", "limit": 1,
+      "settings": [{ "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le paiement express (PayPal…)", "default": true }]
+    },
+    { "type": "delivery", "name": "Estimation de livraison", "limit": 1 },
+    { "type": "trust", "name": "Réassurance", "limit": 1 },
+    {
+      "type": "bundle", "name": "Produit complémentaire", "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Titre", "default": "Complétez votre rituel" },
+        { "type": "product", "id": "product", "label": "Produit" }
+      ]
+    },
+    {
+      "type": "specs", "name": "Caractéristiques", "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Titre", "default": "Caractéristiques" },
+        { "type": "textarea", "id": "specs", "label": "Une ligne par caractéristique (Nom: valeur). Le métachamp lumaube.specs est prioritaire." }
+      ]
+    },
+    {
+      "type": "collapsible", "name": "Onglet repliable",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Titre", "default": "Livraison & retours" },
+        { "type": "select", "id": "icon", "label": "Icône", "default": "truck", "options": [
+          { "value": "truck", "label": "Livraison" }, { "value": "return", "label": "Retour" }, { "value": "leaf", "label": "Feuille" },
+          { "value": "sun", "label": "Soleil" }, { "value": "moon", "label": "Lune" }, { "value": "chat", "label": "Question" }, { "value": "check", "label": "Coche" } ] },
+        { "type": "select", "id": "source", "label": "Contenu", "default": "custom", "options": [
+          { "value": "custom", "label": "Texte ci-dessous ou page" }, { "value": "description", "label": "Description du produit" } ] },
+        { "type": "richtext", "id": "content", "label": "Texte" },
+        { "type": "page", "id": "page", "label": "Ou contenu d'une page" },
+        { "type": "checkbox", "id": "open", "label": "Ouvert par défaut", "default": false }
+      ]
+    }
+  ]
+}
+{% endschema %}
