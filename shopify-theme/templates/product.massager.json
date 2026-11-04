@@ -20,7 +20,7 @@
         "benefits": {
           "type": "benefits",
           "settings": {
-            "items": "Têtes souples qui massent sans tirer les cheveux\nPlusieurs modes et intensités\nRechargeable, sans fil, format compact\nUn moment de détente à s'offrir après la journée"
+            "items": "8 griffes souples qui épousent la forme de la tête\nVibration douce pour un moment de détente\nRechargeable par USB, sans fil\nCompact : se glisse dans un tiroir ou une valise"
           }
         },
         "variants": {
@@ -89,7 +89,7 @@
             "heading": "Entretien",
             "icon": "check",
             "source": "custom",
-            "content": "<p>Retirez les têtes de massage pour les nettoyer à l'eau tiède et séchez-les avant de les remettre. Ne plongez pas la partie moteur dans l'eau si le produit n'est pas indiqué étanche.</p>",
+            "content": "<p>Nettoyez les griffes avec un chiffon légèrement humide et laissez sécher. Ne plongez pas l'appareil dans l'eau.</p>",
             "open": false
           }
         }
@@ -163,14 +163,14 @@
           "type": "qa",
           "settings": {
             "question": "Est-ce que ça abîme les cheveux ?",
-            "answer": "<p>Les têtes sont souples et ne tirent pas sur les cheveux. Utilisez une intensité douce et évitez les cheveux mouillés si le produit n'est pas étanche.</p>"
+            "answer": "<p>Les griffes sont souples et arrondies. Utilisez-le sur cheveux secs, en mouvements lents, sans appuyer fort.</p>"
           }
         },
         "q1": {
           "type": "qa",
           "settings": {
             "question": "Combien de temps dure la batterie ?",
-            "answer": "<p>L'autonomie dépend du mode utilisé ; elle est indiquée dans les caractéristiques du produit.</p>"
+            "answer": "<p>Il se recharge par câble USB (fourni). L'autonomie exacte est indiquée dans les caractéristiques.</p>"
           }
         },
         "q2": {

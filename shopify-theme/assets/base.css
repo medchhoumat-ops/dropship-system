@@ -96,6 +96,7 @@ strong { font-weight: var(--f-body-bold); }
 .hero--dark .hero__sub { color: color-mix(in srgb, var(--c-bg) 80%, transparent); }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .hero__note { margin-top: 16px; font-size: .9rem; color: var(--c-text-soft); }
+.hero__video video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px; box-shadow: 0 30px 60px -30px rgba(30, 34, 56, .45); }
 .hero__media img { border-radius: 28px; box-shadow: 0 30px 60px -30px rgba(30, 34, 56, .45); }
 .hero__placeholder { aspect-ratio: 4 / 3; border-radius: 28px; background: linear-gradient(180deg, #2b2f52 0%, #6b4e71 45%, var(--c-accent) 80%, var(--c-accent-2) 100%); position: relative; overflow: hidden; }
 .sunrise { position: absolute; left: 50%; bottom: -18%; width: 60%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, #fff3d6 0%, var(--c-accent-2) 45%, var(--c-accent) 75%, transparent 76%); animation: rise 6s ease-out infinite alternate; }

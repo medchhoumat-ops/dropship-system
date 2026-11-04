@@ -14,6 +14,11 @@
     });
   }
 
+  /* Respect reduced-motion: pause autoplaying hero videos */
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    $$('.hero__video video').forEach((v) => { v.autoplay = false; v.pause(); });
+  }
+
   /* Money formatting in the shop currency */
   const currency = (window.Shopify && Shopify.currency && Shopify.currency.active) || 'EUR';
   const money = (cents) => new Intl.NumberFormat(cfg.locale || 'fr', { style: 'currency', currency }).format(cents / 100);

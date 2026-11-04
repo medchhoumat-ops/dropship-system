@@ -111,7 +111,7 @@
       "settings": {
         "eyebrow": "Rituel du soir",
         "heading": "Le soir aussi, on ralentit",
-        "text": "<p>Le mode crépuscule fait baisser la lumière doucement pendant que vous lisez. Ajoutez un masque en soie pour le noir complet, et un massage du cuir chevelu pour décrocher de la journée.</p>",
+        "text": "<p>Le mode crépuscule fait baisser la lumière doucement pendant que vous lisez. Ajoutez un masque de nuit pour le noir complet, et un massage du cuir chevelu pour décrocher de la journée.</p>",
         "button_label": "Voir le rituel du soir",
         "button_link": "/collections/all",
         "reverse": true,
@@ -170,7 +170,7 @@
           "type": "row",
           "settings": {
             "label": "Prix",
-            "c1": "44,90 €",
+            "c1": "49,90 €",
             "c2": "variable",
             "c3": "80 à 220 €"
           }

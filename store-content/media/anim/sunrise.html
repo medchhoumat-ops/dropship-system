@@ -1,0 +1,87 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Caladea; src: local("Caladea"); }
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#141833}
+  #stage{position:relative;width:100vw;height:100vh;overflow:hidden;font-family:Inter, sans-serif}
+  #sky{position:absolute;inset:0}
+  #stars{position:absolute;inset:0}
+  .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff}
+  #glow{position:absolute;left:50%;transform:translateX(-50%);border-radius:50%;filter:blur(40px)}
+  #sun{position:absolute;left:50%;transform:translateX(-50%);border-radius:50%}
+  #ground{position:absolute;left:0;right:0;bottom:0;background:#1E2238}
+  #horizon{position:absolute;left:8%;right:8%;height:6px;border-radius:3px;background:#1E2238}
+  .rays{position:absolute;left:50%;transform:translateX(-50%)}
+  #text{position:absolute;left:0;right:0;text-align:center;color:#FBF6EE;padding:0 7%}
+  #h{font-family:Caladea, Georgia, serif;line-height:1.1;margin:0}
+  #s{margin-top:.6em;opacity:.9}
+  #logo{position:absolute;left:50%;transform:translateX(-50%)}
+  #clock{position:absolute;left:50%;transform:translateX(-50%);font-family:Inter,sans-serif;font-weight:300;color:#FBF6EE;letter-spacing:.05em}
+</style></head><body><div id="stage">
+<div id="sky"></div><div id="stars"></div><div id="glow"></div><div id="sun"></div>
+<svg class="rays" id="rays"></svg>
+<div id="ground"></div><div id="horizon"></div>
+<div id="clock">6:30</div>
+<div id="text"><p id="h"></p><p id="s"></p></div>
+<img id="logo" src="logo-white.svg">
+</div>
+<script>
+const P = new URLSearchParams(location.search);
+const W = innerWidth, H = innerHeight, S = Math.min(W, H);
+const SHOW_TEXT = P.get('text') !== '0';
+const HEAD = "Réveillez-vous avec la lumière.";
+const SUB = "Réveil simulateur d'aube · Livraison offerte";
+document.getElementById('h').textContent = HEAD;
+document.getElementById('s').textContent = SUB;
+// stars (deterministic)
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const stars = document.getElementById('stars');
+for (let i = 0; i < 90; i++) { const d = document.createElement('div'); d.className='star';
+  d.style.left = (rnd()*100)+'%'; d.style.top = (rnd()*62)+'%'; d.dataset.tw = rnd()*6.28; stars.appendChild(d); }
+const lerp=(a,b,t)=>a+(b-a)*t, clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const mix=(c1,c2,t)=>{const p=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));const a=p(c1),b=p(c2);
+  return 'rgb('+a.map((v,i)=>Math.round(lerp(v,b[i],t))).join(',')+')';};
+const horizonY = H*0.66;
+window.render = (t, D) => {               // t seconds, D total duration
+  const rise = ease(clamp((t-0.8)/(D*0.62)));          // sunrise progress
+  const top = rise<.5 ? mix('#141833','#3B3566',rise*2) : mix('#3B3566','#8FB7D9',(rise-.5)*2);
+  const mid = rise<.5 ? mix('#1E2238','#C2697A',rise*2) : mix('#C2697A','#F6C9A0',(rise-.5)*2);
+  const low = rise<.5 ? mix('#2A2D4F','#F08A5D',rise*2) : mix('#F08A5D','#F7C873',(rise-.5)*2);
+  document.getElementById('sky').style.background = `linear-gradient(180deg, ${top} 0%, ${mid} 48%, ${low} 66%, ${low} 100%)`;
+  document.querySelectorAll('.star').forEach(s=>{ s.style.opacity = clamp(1-rise*1.6) * (0.55+0.45*Math.sin(t*2+ +s.dataset.tw)); });
+  const R = SHOW_TEXT ? S*0.14 : S*0.20;
+  const sunY = lerp(horizonY + R*1.05, horizonY - R*0.55, rise);
+  const sun = document.getElementById('sun');
+  Object.assign(sun.style,{width:2*R+'px',height:2*R+'px',top:(sunY-R)+'px',
+    background:`radial-gradient(circle at 50% 40%, #FFF4DA 0%, #F7C873 45%, #F08A5D 100%)`});
+  const glow = document.getElementById('glow');
+  Object.assign(glow.style,{width:6*R+'px',height:6*R+'px',top:(sunY-3*R)+'px',
+    background:`radial-gradient(circle, rgba(247,200,115,${0.55*rise}) 0%, rgba(240,138,93,${0.35*rise}) 40%, transparent 70%)`});
+  // rays like the logo
+  const rays = document.getElementById('rays'); const RW = 5*R;
+  rays.setAttribute('width', RW); rays.setAttribute('height', RW); rays.setAttribute('viewBox', `0 0 ${RW} ${RW}`);
+  rays.style.top = (sunY - RW/2)+'px';
+  const ro = clamp((rise-0.55)/0.3);
+  rays.innerHTML = [-150,-120,-90,-60,-30].map(a=>{const r=a*Math.PI/180,c=RW/2;
+    const r1=R*1.3, r2=R*(1.3+0.35*ro);
+    return `<line x1="${c+Math.cos(r)*r1}" y1="${c+Math.sin(r)*r1}" x2="${c+Math.cos(r)*r2}" y2="${c+Math.sin(r)*r2}" stroke="#F7C873" stroke-width="${R*0.13}" stroke-linecap="round" opacity="${ro}"/>`}).join('');
+  const g = document.getElementById('ground'); g.style.top = horizonY+'px';
+  g.style.background = mix('#141833','#1E2238',rise);
+  const hz = document.getElementById('horizon'); hz.style.top = (horizonY-3)+'px'; hz.style.background = mix('#2A2D4F','#FBF6EE',rise*0.85);
+  // clock fades as the sun rises
+  const ck = document.getElementById('clock'); ck.style.fontSize = S*0.11+'px'; ck.style.top = (H*0.14)+'px';
+  ck.style.opacity = SHOW_TEXT ? clamp(1 - (t-1.2)/1.2) * clamp(t/0.6) : 0;
+  // headline
+  const tx = document.getElementById('text'); tx.style.top = (H*0.12)+'px';
+  document.getElementById('h').style.fontSize = (S*0.085)+'px';
+  document.getElementById('s').style.fontSize = (S*0.034)+'px';
+  const ta = SHOW_TEXT ? clamp((t-(D*0.42))/0.9) : 0;
+  tx.style.color = mix('#FBF6EE','#1E2238',clamp((rise-0.45)/0.4)); tx.style.textShadow = rise>0.6 ? '0 1px 18px rgba(251,246,238,.55)' : '0 1px 18px rgba(20,24,51,.45)';
+  tx.style.opacity = ta; tx.style.transform = `translateY(${(1-ta)*S*0.03}px)`;
+  // logo at the end
+  const lg = document.getElementById('logo'); lg.style.width = (S*0.5)+'px';
+  lg.style.top = (horizonY + (H-horizonY)/2 - S*0.065)+'px';
+  lg.style.opacity = SHOW_TEXT ? clamp((t-(D*0.72))/0.8) : 0;
+};
+window.render(0, 8);
+</script></body></html>

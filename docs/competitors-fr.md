@@ -64,17 +64,17 @@ Nobody runs meaningful Google Ads on these products. Organic traffic is small ex
 
 | Product | Our landed cost (CJ, China → FR, 7–11 d) | Competitor prices | Our planned price | Profit / order* |
 |---|---|---|---|---|
-| Wake-up light (sunrise simulation, natural sounds) | ≈ €15 | €64.90 – €103.99 | **€44.90** | ≈ €25.4 |
+| Wake-up light with clock display (CJ $14.76 + ~$8.3 shipping) | ≈ €21 | €64.90 – €103.99 | **€49.90** | ≈ €23.9 |
 | Electric scalp massager | ≈ €9.6 | €28.99 – €89.00 | **€34.90** | ≈ €21.6 |
-| Silk sleep mask | ≈ €4.4 | – | €12.90 / free in bundle | ≈ €6.9 |
-| Kit "Réveil doux" (light + mask) | ≈ €19.4 | – | **€49.90** | ≈ €25.5 |
+| Sleep mask (material to confirm — not "silk" until verified) | ≈ €5.6 | – | €12.90 / free in bundle | ≈ €5.7 |
+| Kit "Réveil doux" (light + mask) | ≈ €26.6 | – | **€59.90** | ≈ €27.4 |
 
 *After PayPal + Shopify fees (≈ 9 % + €0.49), before ads. Break-even ad cost per sale ≈ €21–25 vs
 an expected €4–10 at €0.11 CPC and 1.5–2.5 % conversion.
 
 ## 5. How we beat them (honestly)
 
-1. **Price**: €44.90 vs €64.90–103.99 for comparable wake-up lights, without fake "-35 %" anchors.
+1. **Price**: €49.90 vs €64.90–103.99 for comparable wake-up lights, without fake "-35 %" anchors.
 2. **Real reviews only** (Judge.me, verified buyers). No copied review widgets.
 3. **Transparent specs**: lux level, sunrise duration (10–60 min), sounds, power, size — most
    competitors hide them.
@@ -85,3 +85,11 @@ an expected €4–10 at €0.11 CPC and 1.5–2.5 % conversion.
    durée, sons, prix) — targets the 25k searches the leader captures with self-serving rankings.
 7. **Bundles**: light + sleep mask, light + scalp massager ("Rituel matin & soir") to raise AOV.
 8. **Winter timing**: launch Google Shopping now (peak Oct–Feb) at €0.10–0.16 CPC.
+
+## 6. Correction after checking supplier data (same day)
+- The cheap CJ wake-up light ($7.96) has **no clock display**; the version with a clock is $14.76.
+  CJ descriptions for wake-up lights don't confirm FM radio, nature sounds, sunset mode or an adjustable
+  sunrise duration. **Order a sample** (or pick an AliExpress Choice listing that states these features)
+  and remove any feature from the store copy that the sample doesn't have.
+- The scalp-massager supplier text claims "promotes hair growth": that is a health claim — never copy it.
+- The sleep mask's material is "consult customer service": don't call it silk until confirmed.
