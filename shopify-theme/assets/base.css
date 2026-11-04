@@ -135,10 +135,11 @@ strong { font-weight: var(--f-body-bold); }
 .product { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 24px; padding-bottom: 48px; }
 .product > *, .split > *, .hero__inner > * { min-width: 0; }
 @media (min-width: 990px) { .product { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; padding-top: 48px; align-items: start; } .product__info { position: sticky; top: 96px; } }
-.gallery__main { border-radius: 24px; overflow: hidden; background: #fff; }
+.gallery__main { border-radius: 24px; overflow: hidden; background: var(--c-bg); }
 .gallery__slide { display: none; }
 .gallery__slide.is-active { display: block; }
-.gallery__slide img, .gallery__slide svg { width: 100%; aspect-ratio: 1; object-fit: cover; }
+/* contain: wide infographics and lifestyle shots are shown whole, letterboxed on the cream background */
+.gallery__slide img, .gallery__slide svg { width: 100%; aspect-ratio: 1; object-fit: contain; }
 .gallery__thumbs { list-style: none; display: flex; gap: 10px; padding: 0; margin: 12px 0 0; overflow-x: auto; }
 .gallery__thumb { width: 72px; height: 72px; padding: 0; border: 2px solid transparent; border-radius: 12px; overflow: hidden; background: #fff; cursor: pointer; flex: none; }
 .gallery__thumb.is-active { border-color: var(--c-accent); }
