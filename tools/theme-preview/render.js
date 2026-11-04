@@ -40,7 +40,9 @@ const euro = (c) => (Number(c || 0) / 100).toFixed(2).replace('.', ',') + ' €'
 engine.registerFilter('money', euro);
 engine.registerFilter('money_with_currency', (c) => euro(c) + ' EUR');
 engine.registerFilter('money_without_currency', (c) => (Number(c || 0) / 100).toFixed(2).replace('.', ','));
-for (const f of ['font_face', 'font_url', 'preload_tag', 'structured_data', 'default_pagination', 'external_video_tag', 'media_tag'])
+// font_face returns CSS text, like Shopify, so markup that prints it outside <style> shows up in the preview.
+engine.registerFilter('font_face', (font) => `@font-face { font-family: ${(font && font.family) || 'x'}; }`);
+for (const f of ['font_url', 'preload_tag', 'structured_data', 'default_pagination', 'external_video_tag', 'media_tag'])
   engine.registerFilter(f, () => '');
 engine.registerFilter('font_modify', (font) => ({ ...font, weight: 700 }));
 engine.registerFilter('payment_button', () =>
