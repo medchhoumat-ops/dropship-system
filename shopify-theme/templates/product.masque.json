@@ -1,0 +1,217 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "Sommeil"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits": {
+          "type": "benefits",
+          "settings": {
+            "items": "Fait le noir complet, à la maison comme en voyage\nDoux et léger, au toucher satiné\nÉlastique confortable\nNoir ou gris"
+          }
+        },
+        "variants": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "delivery": {
+          "type": "delivery",
+          "settings": {}
+        },
+        "trust": {
+          "type": "trust",
+          "settings": {}
+        },
+        "bundle": {
+          "type": "bundle",
+          "settings": {
+            "heading": "Le rituel du matin",
+            "product": "reveil-simulateur-d-aube"
+          }
+        },
+        "specs": {
+          "type": "specs",
+          "settings": {
+            "heading": "Caractéristiques"
+          }
+        },
+        "tab0": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Description",
+            "icon": "sun",
+            "source": "description",
+            "content": "",
+            "open": true
+          }
+        },
+        "tab1": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Livraison & suivi",
+            "icon": "truck",
+            "source": "custom",
+            "content": "<p><strong>Livraison offerte</strong> en France métropolitaine. Commande préparée et expédiée sous 24 à 72 h, puis livrée en <strong>7 à 12 jours ouvrés</strong>. Vous recevez un numéro de suivi par e-mail dès l'expédition.</p>",
+            "open": false
+          }
+        },
+        "tab2": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Retours & garanties",
+            "icon": "return",
+            "source": "custom",
+            "content": "<p><strong>Satisfait ou remboursé 30 jours</strong> après réception. Vous bénéficiez aussi du droit de rétractation de 14 jours et de la garantie légale de conformité de 2 ans. Produit défectueux : le retour est à notre charge.</p>",
+            "open": false
+          }
+        },
+        "tab3": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Entretien",
+            "icon": "check",
+            "source": "custom",
+            "content": "<p>Lavez-le délicatement à la main et laissez-le sécher à plat.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "title",
+        "price",
+        "benefits",
+        "variants",
+        "buy",
+        "delivery",
+        "trust",
+        "bundle",
+        "specs",
+        "tab0",
+        "tab1",
+        "tab2",
+        "tab3"
+      ],
+      "settings": {}
+    },
+    "steps": {
+      "type": "steps",
+      "settings": {
+        "eyebrow": "Le soir",
+        "heading": "Une nuit plus noire en 3 gestes",
+        "alt": true
+      },
+      "blocks": {
+        "s0": {
+          "type": "step",
+          "settings": {
+            "icon": "moon",
+            "title": "Ajustez l'élastique",
+            "text": "Le masque se pose en douceur, sans serrer."
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "icon": "leaf",
+            "title": "Fermez les yeux",
+            "text": "Le noir complet, même si la chambre ne l'est pas."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "icon": "sun",
+            "title": "Au matin",
+            "text": "Associez-le au réveil simulateur d'aube pour un réveil tout en lumière."
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "Questions fréquentes",
+        "heading": "Avant de commander",
+        "alt": false
+      },
+      "blocks": {
+        "q0": {
+          "type": "qa",
+          "settings": {
+            "question": "Est-il en soie ?",
+            "answer": "<p>Non. Il est en fibre synthétique au toucher satiné, doux et léger.</p>"
+          }
+        },
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Convient-il pour voyager ?",
+            "answer": "<p>Oui, il est léger et se glisse facilement dans un sac.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Quelle couleur choisir ?",
+            "answer": "<p>Noir ou gris : c'est une question de goût, les deux font le noir.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2"
+      ]
+    },
+    "reviews": {
+      "type": "apps",
+      "settings": {}
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "30 jours pour l'adopter",
+        "text": "<p>Essayez-le chez vous pendant 30 jours après réception. S'il ne vous convient pas, écrivez-nous et nous vous remboursons. Produit défectueux : le retour est à notre charge.</p>"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Pour compléter votre rituel"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "steps",
+    "faq",
+    "reviews",
+    "guarantee",
+    "recommendations"
+  ]
+}
