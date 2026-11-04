@@ -84,3 +84,10 @@ def test_pricing_math(settings):
     assert p.breakeven_cpa == p.profit
     assert math.isclose(p.breakeven_roas, round(p.price / p.profit, 2))
     assert p.local_currency == "GBP" and str(p.local_price).endswith(".99")
+
+
+def test_price_capped_by_market(settings):
+    p = price_product(8.0, settings, market_price=24.0)
+    assert p.capped_by_market and p.price == 23.99
+    assert p.multiplier == round(23.99 / 8.0, 2)
+    assert price_product(8.0, settings, market_price=80.0).capped_by_market is False

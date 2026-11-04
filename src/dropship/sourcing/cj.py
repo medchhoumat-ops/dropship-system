@@ -35,8 +35,10 @@ class CJClient(BaseClient):
         return data.get("data") if isinstance(data, dict) else None
 
     # --------------------------------------------------------------- endpoints
-    def search(self, keyword: str, size: int = 10) -> list[dict]:
-        data = self._api("product/listV2", {"keyWord": keyword, "page": 1, "size": size}) or {}
+    def search(self, keyword: str, size: int = 10, warehouse: str | None = None) -> list[dict]:
+        """Keyword search; `warehouse` (e.g. "US") keeps only products stocked in that country."""
+        params = {"keyWord": keyword, "page": 1, "size": size, "countryCode": warehouse}
+        data = self._api("product/listV2", params) or {}
         items: list[dict] = []
         for block in data.get("content") or []:
             items.extend(block.get("productList") or [])

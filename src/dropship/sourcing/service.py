@@ -56,7 +56,7 @@ def source_products(
     products: list[SourcedProduct] = []
     if "cj" in platforms:
         try:
-            for hit in clients.cj.search(value, size=limit):
+            for hit in clients.cj.search(value, size=limit, warehouse=market.iso):
                 try:
                     p = clients.cj.sourced_product(hit["pid"], market)
                     if hit.get("title") and clients.cj.mock:

@@ -63,6 +63,9 @@ def write_pick(
                 and pricing.price > research.amazon.price_median * 1.6:
             risks.append(f"Our price ${pricing.price:.2f} is well above Amazon's median "
                          f"${research.amazon.price_median:.2f}; consider a bundle to justify it.")
+    if pricing and pricing.capped_by_market:
+        risks.append(f"Price capped at the market median ${pricing.market_price:.2f} (x{pricing.multiplier} "
+                     "instead of x4-5) so it stays competitive on Google Shopping.")
     if pricing and pricing.breakeven_cpa < 12:
         risks.append(f"Thin ad budget per sale (break-even CPA ${pricing.breakeven_cpa:.2f}); "
                      "needs high CTR creatives or bundles to raise AOV.")

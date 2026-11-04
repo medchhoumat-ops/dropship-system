@@ -26,6 +26,8 @@ class Pricing:
     breakeven_roas: float  # revenue / ad spend at break-even
     local_currency: str = "USD"
     local_price: float | None = None
+    capped_by_market: bool = False  # price lowered to the Amazon/Shopping median
+    market_price: float | None = None
 
 
 def round_99(x: float) -> float:
@@ -41,9 +43,16 @@ def multiplier_for(landed: float, settings: Settings) -> float:
     return round(settings.multiplier_max - t * (settings.multiplier_max - settings.multiplier_min), 2)
 
 
-def price_product(landed: float, settings: Settings, market: Market | None = None) -> Pricing:
+def price_product(landed: float, settings: Settings, market: Market | None = None,
+                  market_price: float | None = None) -> Pricing:
+    """`market_price` (e.g. Amazon page-1 median) caps the price: Google Shopping shows
+    competitors side by side, so pricing above the market median rarely gets clicks."""
     mult = multiplier_for(landed, settings)
     price = round_99(landed * mult)
+    capped = False
+    if market_price and price > market_price:
+        price, capped = round_99(market_price), True
+        mult = round(price / landed, 2) if landed else mult
     fees = round(price * settings.fee_pct + settings.fee_fixed, 2)
     profit = round(price - landed - fees, 2)
     be_cpa = max(profit, 0.0)
@@ -54,6 +63,7 @@ def price_product(landed: float, settings: Settings, market: Market | None = Non
         fees=fees, profit=profit, margin_pct=round(profit / price, 3) if price else 0.0,
         breakeven_cpa=round(be_cpa, 2),
         breakeven_roas=round(price / be_cpa, 2) if be_cpa > 0 else math.inf,
+        capped_by_market=capped, market_price=market_price,
     )
     if market is not None:
         pricing.local_currency = market.currency

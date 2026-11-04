@@ -73,7 +73,16 @@ def evaluate_products(products: list[SourcedProduct], research: KeywordResearch 
     picks, rejected = [], []
     for p in products:
         filt = evaluate(p, market, settings)
-        pricing = price_product(filt.landed_cost, settings, market) if filt.landed_cost else None
+        market_price = None
+        if research and research.amazon and research.amazon.price_median:
+            market_price = research.amazon.price_median
+        elif research and research.shopping and research.shopping.price_median:
+            market_price = research.shopping.price_median
+        pricing = price_product(filt.landed_cost, settings, market, market_price) if filt.landed_cost else None
+        if pricing and pricing.multiplier < 2.0:
+            filt.failures.append(f"market price ${market_price:.2f} leaves only x{pricing.multiplier} on landed "
+                                 f"${filt.landed_cost:.2f} – Amazon/Shopping is too cheap to compete")
+            filt.passed = False
         score = score_product(research, pricing, filt)
         entry = {
             "keyword": research.keyword if research else keyword_from_title(p.title),
