@@ -1,0 +1,5 @@
+{"aliexpress_ds_text_search_response": {"code": "00", "data": {"totalCount": 3, "pageIndex": 1, "pageSize": 10, "products": {"selection_search_product": [
+  {"itemId": "1005006000000001", "title": "{Keyword} Everyday", "targetSalePrice": "5.10", "targetOriginalPrice": "7.00", "itemMainPic": "https://ae01.alicdn.com/mock1.jpg", "orders": "2,000+", "evaluateRate": "96.4%"},
+  {"itemId": "1005006000000002", "title": "{Keyword} Multicolour", "targetSalePrice": "2.80", "itemMainPic": "https://ae01.alicdn.com/mock2.jpg", "orders": "10,000+"},
+  {"itemId": "1005006000000003", "title": "{Keyword} Budget", "targetSalePrice": "1.95", "itemMainPic": "https://ae01.alicdn.com/mock3.jpg", "orders": "500+"}
+]}}, "request_id": "mock"}}

@@ -1,0 +1,27 @@
+{
+  "1005006000000001": {"aliexpress_ds_product_get_response": {"rsp_code": 200, "rsp_msg": "Call succeeds", "result": {
+    "ae_item_base_info_dto": {"product_id": 1005006000000001, "subject": "{Keyword} Everyday", "category_id": 100001, "currency_code": "USD"},
+    "ae_multimedia_info_dto": {"image_urls": "https://ae01.alicdn.com/mock1.jpg;https://ae01.alicdn.com/mock1b.jpg"},
+    "ae_store_info": {"store_id": 1100000001, "store_name": "Mock Home Official Store", "store_country_code": "CN"},
+    "ae_item_sku_info_dtos": {"ae_item_sku_info_d_t_o": [
+      {"sku_id": "12000000000000001", "offer_sale_price": "5.10", "sku_price": "7.00", "sku_available_stock": 230, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Ships From", "sku_property_value": "United States"}]}},
+      {"sku_id": "12000000000000002", "offer_sale_price": "4.60", "sku_price": "6.40", "sku_available_stock": 4800, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Ships From", "sku_property_value": "China"}]}},
+      {"sku_id": "12000000000000003", "offer_sale_price": "5.30", "sku_price": "7.10", "sku_available_stock": 150, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Ships From", "sku_property_value": "Spain"}]}}
+    ]}}}},
+  "1005006000000002": {"aliexpress_ds_product_get_response": {"rsp_code": 200, "result": {
+    "ae_item_base_info_dto": {"product_id": 1005006000000002, "subject": "{Keyword} Multicolour", "category_id": 100001},
+    "ae_multimedia_info_dto": {"image_urls": "https://ae01.alicdn.com/mock2.jpg"},
+    "ae_store_info": {"store_id": 1100000002, "store_name": "Mock Colour Store"},
+    "ae_item_sku_info_dtos": {"ae_item_sku_info_d_t_o": [
+      {"sku_id": "22000000000000001", "offer_sale_price": "2.80", "sku_available_stock": 900, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Color", "sku_property_value": "Pink"}]}},
+      {"sku_id": "22000000000000002", "offer_sale_price": "2.80", "sku_available_stock": 900, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Color", "sku_property_value": "Black"}]}},
+      {"sku_id": "22000000000000003", "offer_sale_price": "3.20", "sku_available_stock": 700, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Size", "sku_property_value": "L"}]}}
+    ]}}}},
+  "1005006000000003": {"aliexpress_ds_product_get_response": {"rsp_code": 200, "result": {
+    "ae_item_base_info_dto": {"product_id": 1005006000000003, "subject": "{Keyword} Budget", "category_id": 100001},
+    "ae_multimedia_info_dto": {"image_urls": "https://ae01.alicdn.com/mock3.jpg"},
+    "ae_store_info": {"store_id": 1100000003, "store_name": "Mock Budget Store"},
+    "ae_item_sku_info_dtos": {"ae_item_sku_info_d_t_o": [
+      {"sku_id": "32000000000000001", "offer_sale_price": "1.95", "sku_available_stock": 12000, "ae_sku_property_dtos": {"ae_sku_property_d_t_o": [{"sku_property_name": "Ships From", "sku_property_value": "China"}]}}
+    ]}}}}
+}

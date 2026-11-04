@@ -1,0 +1,7 @@
+{
+  "V1720000000000000001A": [{"areaId": "2", "areaEn": "US Warehouse", "countryCode": "US", "totalInventoryNum": 340}, {"areaId": "3", "areaEn": "Germany Warehouse", "countryCode": "DE", "totalInventoryNum": 120}, {"areaId": "1", "areaEn": "China Warehouse", "countryCode": "CN", "totalInventoryNum": 9000}],
+  "V1720000000000000002A": [{"areaId": "2", "areaEn": "US Warehouse", "countryCode": "US", "totalInventoryNum": 80}],
+  "V1720000000000000003A": [{"areaId": "1", "areaEn": "China Warehouse", "countryCode": "CN", "totalInventoryNum": 25000}],
+  "V1720000000000000004A": [{"areaId": "2", "areaEn": "US Warehouse", "countryCode": "US", "totalInventoryNum": 60}, {"areaId": "1", "areaEn": "China Warehouse", "countryCode": "CN", "totalInventoryNum": 900}],
+  "V1720000000000000005A": [{"areaId": "2", "areaEn": "US Warehouse", "countryCode": "US", "totalInventoryNum": 75}, {"areaId": "5", "areaEn": "UK Warehouse", "countryCode": "GB", "totalInventoryNum": 40}, {"areaId": "6", "areaEn": "CA Warehouse", "countryCode": "CA", "totalInventoryNum": 30}, {"areaId": "1", "areaEn": "China Warehouse", "countryCode": "CN", "totalInventoryNum": 5000}]
+}

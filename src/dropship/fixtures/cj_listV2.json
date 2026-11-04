@@ -1,0 +1,16 @@
+{
+  "code": 200, "result": true, "message": "Success", "requestId": "mock",
+  "data": {
+    "pageSize": 20, "pageNumber": 1, "totalRecords": 5, "totalPages": 1,
+    "content": [{
+      "keyWord": "{keyword}",
+      "productList": [
+        {"id": "1720000000000000001", "nameEn": "{Keyword} Classic", "sku": "CJMOCK0001", "bigImage": "https://cf.cjdropshipping.com/mock1.jpg", "sellPrice": "4.20", "threeCategoryName": "Mock Category", "listedNum": 412},
+        {"id": "1720000000000000002", "nameEn": "{Keyword} Colour Set", "sku": "CJMOCK0002", "bigImage": "https://cf.cjdropshipping.com/mock2.jpg", "sellPrice": "3.10-3.90", "threeCategoryName": "Mock Category", "listedNum": 1290},
+        {"id": "1720000000000000003", "nameEn": "{Keyword} Lite", "sku": "CJMOCK0003", "bigImage": "https://cf.cjdropshipping.com/mock3.jpg", "sellPrice": "2.40", "threeCategoryName": "Mock Category", "listedNum": 88},
+        {"id": "1720000000000000004", "nameEn": "{Keyword} Pro Max", "sku": "CJMOCK0004", "bigImage": "https://cf.cjdropshipping.com/mock4.jpg", "sellPrice": "13.50", "threeCategoryName": "Mock Category", "listedNum": 35},
+        {"id": "1720000000000000005", "nameEn": "{Keyword} Plus", "sku": "CJMOCK0005", "bigImage": "https://cf.cjdropshipping.com/mock5.jpg", "sellPrice": "6.10", "threeCategoryName": "Mock Category", "listedNum": 640}
+      ]
+    }]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "1720000000000000001": {"pid": "1720000000000000001", "productNameEn": "{Keyword} Classic", "productSku": "CJMOCK0001", "productImage": "[\"https://cf.cjdropshipping.com/mock1.jpg\",\"https://cf.cjdropshipping.com/mock1b.jpg\"]", "categoryName": "Mock Category", "sellPrice": "4.20", "productKeyEn": "", "supplierName": "Shenzhen Mock Trading Co.", "supplierId": "SUP001",
+    "variants": [{"vid": "V1720000000000000001A", "pid": "1720000000000000001", "variantNameEn": "{Keyword} Classic", "variantSku": "CJMOCK0001-A", "variantKey": "", "variantSellPrice": 4.20, "variantWeight": 180}]},
+  "1720000000000000002": {"pid": "1720000000000000002", "productNameEn": "{Keyword} Colour Set", "productSku": "CJMOCK0002", "productImage": "https://cf.cjdropshipping.com/mock2.jpg", "categoryName": "Mock Category", "sellPrice": "3.10-3.90", "productKeyEn": "Color", "supplierName": "Yiwu Mock Factory", "supplierId": "SUP002",
+    "variants": [
+      {"vid": "V1720000000000000002A", "variantNameEn": "{Keyword} Red", "variantSku": "CJMOCK0002-RED", "variantKey": "Red", "variantSellPrice": 3.10, "variantWeight": 150},
+      {"vid": "V1720000000000000002B", "variantNameEn": "{Keyword} Blue", "variantSku": "CJMOCK0002-BLUE", "variantKey": "Blue", "variantSellPrice": 3.50, "variantWeight": 150},
+      {"vid": "V1720000000000000002C", "variantNameEn": "{Keyword} Grey", "variantSku": "CJMOCK0002-GREY", "variantKey": "Grey", "variantSellPrice": 3.90, "variantWeight": 150}]},
+  "1720000000000000003": {"pid": "1720000000000000003", "productNameEn": "{Keyword} Lite", "productSku": "CJMOCK0003", "productImage": "https://cf.cjdropshipping.com/mock3.jpg", "categoryName": "Mock Category", "sellPrice": "2.40", "productKeyEn": "", "supplierName": "CJ Dropshipping",
+    "variants": [{"vid": "V1720000000000000003A", "variantNameEn": "{Keyword} Lite", "variantSku": "CJMOCK0003-A", "variantKey": "", "variantSellPrice": 2.40, "variantWeight": 90}]},
+  "1720000000000000004": {"pid": "1720000000000000004", "productNameEn": "{Keyword} Pro Max", "productSku": "CJMOCK0004", "productImage": "https://cf.cjdropshipping.com/mock4.jpg", "categoryName": "Mock Category", "sellPrice": "13.50", "productKeyEn": "", "supplierName": "Ningbo Mock Electric",
+    "variants": [{"vid": "V1720000000000000004A", "variantNameEn": "{Keyword} Pro Max", "variantSku": "CJMOCK0004-A", "variantKey": "", "variantSellPrice": 13.50, "variantWeight": 640}]},
+  "1720000000000000005": {"pid": "1720000000000000005", "productNameEn": "{Keyword} Plus", "productSku": "CJMOCK0005", "productImage": "https://cf.cjdropshipping.com/mock5.jpg", "categoryName": "Mock Category", "sellPrice": "6.10", "productKeyEn": "", "supplierName": "Guangzhou Mock Goods",
+    "variants": [{"vid": "V1720000000000000005A", "variantNameEn": "{Keyword} Plus", "variantSku": "CJMOCK0005-A", "variantKey": "", "variantSellPrice": 6.10, "variantWeight": 260}]}
+}
