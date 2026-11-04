@@ -1,0 +1,2 @@
+Keyword;Search Volume;CPC;Competition;Trends
+{rows}

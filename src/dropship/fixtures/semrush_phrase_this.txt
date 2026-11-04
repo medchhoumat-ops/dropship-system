@@ -1,0 +1,2 @@
+Keyword;Search Volume;CPC;Competition;Number of Results;Trends
+{keyword};{volume};{cpc};{competition};{results};{trends}

@@ -1,0 +1,9 @@
+{
+  "search_metadata": {"status": "Success", "id": "mock"},
+  "search_parameters": {"engine": "google_trends", "q": "{keyword}", "geo": "US", "date": "today 12-m", "data_type": "TIMESERIES"},
+  "interest_over_time": {
+    "timeline_data": [
+      {"date": "Nov 5 - 11, 2025", "timestamp": "1762300800", "values": [{"query": "{keyword}", "value": "52", "extracted_value": 52}]}
+    ]
+  }
+}

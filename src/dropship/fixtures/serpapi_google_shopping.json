@@ -1,0 +1,14 @@
+{
+  "search_metadata": {"status": "Success", "id": "mock"},
+  "search_parameters": {"engine": "google_shopping", "q": "{keyword}", "gl": "us", "hl": "en"},
+  "shopping_results": [
+    {"position": 1, "title": "{Keyword} – Premium", "source": "Pawsome Supply", "link": "https://pawsomesupply.com/products/premium", "price": "$29.99", "extracted_price": 29.99, "rating": 4.6, "reviews": 312},
+    {"position": 2, "title": "{Keyword}", "source": "Amazon.com", "link": "https://www.amazon.com/dp/B0MOCK0001", "price": "$19.95", "extracted_price": 19.95, "rating": 4.4, "reviews": 5120},
+    {"position": 3, "title": "{Keyword} Bestseller", "source": "Happy Home Goods", "link": "https://happyhomegoods.co/products/bestseller", "price": "$34.90", "extracted_price": 34.90, "rating": 4.8, "reviews": 88},
+    {"position": 4, "title": "{Keyword} 2-Pack", "source": "Walmart", "link": "https://www.walmart.com/ip/123", "price": "$17.48", "extracted_price": 17.48},
+    {"position": 5, "title": "{Keyword} Original", "source": "Nordic Nest Store", "link": "https://nordicnest-store.com/products/original", "price": "$39.00", "extracted_price": 39.0, "rating": 4.5, "reviews": 41},
+    {"position": 6, "title": "{Keyword}", "source": "eBay", "link": "https://www.ebay.com/itm/123", "price": "$12.99", "extracted_price": 12.99},
+    {"position": 7, "title": "{Keyword} Deluxe", "source": "Urban Paws Co", "product_link": "https://www.google.com/shopping/product/1?q=x", "price": "$27.50", "extracted_price": 27.5},
+    {"position": 8, "title": "{Keyword} Set", "source": "Etsy", "link": "https://www.etsy.com/listing/1", "price": "$24.00", "extracted_price": 24.0}
+  ]
+}
