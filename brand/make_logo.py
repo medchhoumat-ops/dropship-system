@@ -1,7 +1,7 @@
 """Build the Lumaube logo SVGs (wordmark converted to paths, no font needed)."""
-from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
+from fontTools.ttLib import TTFont
 
 FONT = "/usr/share/fonts/truetype/crosextra/Caladea-Regular.ttf"
 INK, DAWN, HONEY, CREAM = "#1E2238", "#F08A5D", "#F7C873", "#FBF6EE"
