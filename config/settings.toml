@@ -1,0 +1,34 @@
+# dropship-system configuration. Secrets do NOT go here – use environment variables / .env.
+
+# Active target markets. Start with one; the first one is the CLI default.
+# Supported: US, UK, CA, FR, DE
+markets = ["US"]
+
+[cache]
+ttl_hours = 168          # re-use API responses for 7 days
+
+[filters]
+landed_min_usd = 5.0     # item + shipping
+landed_max_usd = 15.0
+max_delivery_days = 10
+single_variant_only = true
+
+[pricing]
+multiplier_min = 4.0     # used for the most expensive items (landed = max)
+multiplier_max = 5.0     # used for the cheapest items (landed = min)
+fee_pct = 0.029          # Shopify Payments ~2.9%
+fee_fixed = 0.30         # + $0.30 per order
+
+[research]
+use_google_trends = false   # true = 12-month trend from SerpApi Google Trends instead of Semrush
+amazon_max_items = 20
+shopping_max_items = 40
+
+[niche]
+top_niches = 5
+min_ideas = 4
+max_ideas_per_niche = 8
+enrich_top = 10           # niches that get Google Shopping price data
+
+[competitors]
+max_stores = 5

@@ -1,0 +1,22 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# runtime data
+data/cache/*
+!data/cache/.gitkeep
+data/runs/
+reports/
+logs/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
