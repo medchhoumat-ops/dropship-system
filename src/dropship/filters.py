@@ -13,6 +13,7 @@ from dataclasses import dataclass, field
 from .config import Market, Settings
 from .models import ShippingOption, SourcedProduct
 
+
 @dataclass
 class FilterResult:
     passed: bool

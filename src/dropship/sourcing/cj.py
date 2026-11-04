@@ -77,10 +77,9 @@ class CJClient(BaseClient):
             raise ApiError(f"cj: product {pid} not found")
         variants = []
         for v in d.get("variants") or []:
-            attrs = {}
             keys = [k for k in re.split(r"[-/]", d.get("productKeyEn") or "") if k]
             vals = [x for x in re.split(r"[-/]", v.get("variantKey") or "") if x]
-            attrs = dict(zip(keys or [f"option{i + 1}" for i in range(len(vals))], vals))
+            attrs = dict(zip(keys or [f"option{i + 1}" for i in range(len(vals))], vals, strict=False))
             variants.append(Variant(vid=v.get("vid", ""), sku=v.get("variantSku", ""),
                                     name=v.get("variantNameEn") or "", attributes=attrs,
                                     price=to_float(v.get("variantSellPrice")),

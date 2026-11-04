@@ -61,8 +61,8 @@ def image_prompts(name: str, keyword: str, niche: str, market: Market) -> list[d
 def ugc_scripts(name: str, keyword: str, market: Market) -> list[dict[str, str]]:
     return [
         {"title": "Problem → solution demo (20–30 s)",
-         "hook": f"\"If you deal with this every day, watch how I handle it now.\" (show the mess/problem "
-                 f"in the first second)",
+         "hook": "\"If you deal with this every day, watch how I handle it now.\" (show the mess/problem "
+                 "in the first second)",
          "problem": f"Show the real, everyday frustration that a {keyword} solves – filmed honestly, "
                     "no exaggeration.",
          "demo": f"Unbox and use the {name} in one continuous take; show set-up, use and clean-up. "
@@ -75,7 +75,7 @@ def ugc_scripts(name: str, keyword: str, market: Market) -> list[dict[str, str]]
                  "to know before buying (honest limitation, e.g. size or care instructions).",
          "cta": "\"If that fits how you'd use it, it's linked here.\""},
         {"title": "Gift / routine angle (15–20 s)",
-         "hook": f"\"Small upgrade to my routine that I didn't know I needed.\" (product in hand)",
+         "hook": "\"Small upgrade to my routine that I didn't know I needed.\" (product in hand)",
          "problem": "Show the old way of doing the task in 2–3 quick cuts.",
          "demo": f"Show the {name} in your routine in {market.name} – real home, real lighting, "
                  "natural voice. Mention it could be a gift idea only if relevant.",

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from . import __version__
 from .competitors import analyze_competitors
@@ -23,7 +23,7 @@ log = logging.getLogger("dropship")
 
 
 def new_run(command: str, market: Market, settings: Settings, clients: Clients, params: dict) -> dict:
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     return {
         "id": f"{now:%Y%m%d-%H%M%S}-{command}",
         "command": command,

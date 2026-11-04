@@ -5,10 +5,12 @@ from __future__ import annotations
 import dataclasses
 import hashlib
 import html
+import math
 import random
 import re
 import statistics
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 
 def seeded_rng(*parts: Any) -> random.Random:
@@ -24,7 +26,7 @@ def to_jsonable(obj: Any) -> Any:
         return {str(k): to_jsonable(v) for k, v in obj.items()}
     if isinstance(obj, (list, tuple, set)):
         return [to_jsonable(v) for v in obj]
-    if isinstance(obj, float) and (obj != obj or obj in (float("inf"), float("-inf"))):
+    if isinstance(obj, float) and not math.isfinite(obj):
         return None  # JSON has no NaN/Infinity
     return obj
 

@@ -5,7 +5,6 @@ from __future__ import annotations
 import logging
 import webbrowser
 from pathlib import Path
-from typing import Optional
 
 import typer
 
@@ -20,7 +19,7 @@ app = typer.Typer(add_completion=False, no_args_is_help=True,
 
 class State:
     settings: Settings
-    mock: Optional[bool] = None
+    mock: bool | None = None
 
 
 state = State()
@@ -29,7 +28,7 @@ state = State()
 @app.callback()
 def main(
     mock: bool = typer.Option(False, "--mock", help="Force mock fixtures for every API."),
-    config: Optional[Path] = typer.Option(None, "--config", help="Path to settings.toml."),
+    config: Path | None = typer.Option(None, "--config", help="Path to settings.toml."),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
 ) -> None:
     logging.basicConfig(level=logging.INFO if verbose else logging.WARNING,
@@ -38,7 +37,7 @@ def main(
     state.mock = True if mock else None
 
 
-def _market(country: Optional[str]):
+def _market(country: str | None):
     try:
         return get_market(country) if country else state.settings.default_market
     except ValueError as exc:
@@ -72,7 +71,7 @@ def _print_picks(run: dict) -> None:
 @app.command()
 def niche(
     seeds: str = typer.Option(..., "--seeds", help='Comma-separated seed categories, e.g. "pets,kitchen".'),
-    country: Optional[str] = typer.Option(None, "--country", "-c", help="US, UK, CA, FR or DE."),
+    country: str | None = typer.Option(None, "--country", "-c", help="US, UK, CA, FR or DE."),
     source: bool = typer.Option(False, "--source", help="Also source the top niche's product ideas."),
 ) -> None:
     """Deep search: rank niches from seed categories; top 5 with 4+ product ideas each."""
@@ -94,7 +93,7 @@ def niche(
 @app.command()
 def research(
     keyword: str = typer.Argument(..., help="Keyword to research."),
-    country: Optional[str] = typer.Option(None, "--country", "-c"),
+    country: str | None = typer.Option(None, "--country", "-c"),
     amazon: bool = typer.Option(True, "--amazon/--no-amazon", help="Run the Apify Amazon actor."),
     competitors: bool = typer.Option(True, "--competitors/--no-competitors"),
     competitor: list[str] = typer.Option([], "--competitor", help="Extra competitor domain(s) to inspect."),
@@ -125,9 +124,9 @@ def research(
 @app.command()
 def source(
     query: str = typer.Argument(..., help="Keyword, CJ pid (or cj:<pid>) or AliExpress id (or ae:<id>)."),
-    country: Optional[str] = typer.Option(None, "--country", "-c"),
+    country: str | None = typer.Option(None, "--country", "-c"),
     limit: int = typer.Option(5, "--limit", help="Products per platform for keyword searches."),
-    keyword: Optional[str] = typer.Option(None, "--keyword", help="Keyword for demand data when querying by id."),
+    keyword: str | None = typer.Option(None, "--keyword", help="Keyword for demand data when querying by id."),
     platform: str = typer.Option("all", "--platform", help="all, cj or aliexpress."),
     amazon: bool = typer.Option(True, "--amazon/--no-amazon"),
     competitors: bool = typer.Option(True, "--competitors/--no-competitors"),
@@ -146,7 +145,7 @@ def source(
 
 @app.command()
 def report(
-    run: Optional[Path] = typer.Option(None, "--run", help="Run JSON (default: latest in data/runs)."),
+    run: Path | None = typer.Option(None, "--run", help="Run JSON (default: latest in data/runs)."),
     open_browser: bool = typer.Option(False, "--open", help="Open the HTML report in a browser."),
 ) -> None:
     """(Re)build the HTML + JSON report for the latest run (or --run FILE)."""

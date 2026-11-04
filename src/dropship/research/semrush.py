@@ -32,7 +32,7 @@ def parse_semrush_csv(text: str) -> list[KeywordMetrics]:
     header = [HEADER_MAP.get(h.strip().lower(), h.strip().lower()) for h in lines[0].split(";")]
     rows: list[KeywordMetrics] = []
     for line in lines[1:]:
-        cols = dict(zip(header, line.split(";")))
+        cols = dict(zip(header, line.split(";"), strict=False))
         if not cols.get("keyword"):
             continue
         trend = [float(t) for t in cols.get("trend", "").split(",") if t.strip()]
