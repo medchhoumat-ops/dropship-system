@@ -128,7 +128,7 @@ class Settings:
 
     @property
     def reports_dir(self) -> Path:
-        return self.data_dir.parent / "reports" if self.data_dir.name == "data" else self.data_dir / "reports"
+        return self.data_dir / "reports"
 
     @property
     def default_market(self) -> Market:

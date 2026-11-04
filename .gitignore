@@ -7,7 +7,7 @@
 data/cache/*
 !data/cache/.gitkeep
 data/runs/
-reports/
+data/reports/
 logs/
 
 # python
