@@ -125,8 +125,8 @@
           "type": "step",
           "settings": {
             "icon": "leaf",
-            "title": "Choisissez le mode",
-            "text": "Démarrez doucement avec l'intensité la plus basse."
+            "title": "Mettez-le en marche",
+            "text": "Sur cheveux secs, posez délicatement les griffes sur la tête."
           }
         },
         "s1": {
@@ -171,7 +171,7 @@
           "type": "qa",
           "settings": {
             "question": "Combien de temps dure la batterie ?",
-            "answer": "<p>Il se recharge par câble USB (fourni). L'autonomie exacte est indiquée dans les caractéristiques.</p>"
+            "answer": "<p>Il est rechargeable par USB, sans fil pendant l'utilisation.</p>"
           }
         },
         "q2": {

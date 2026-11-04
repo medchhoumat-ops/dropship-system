@@ -7,18 +7,17 @@
 | Brand | Name Lumaube, logo, favicon, colours, fonts, brand guide |
 | Domain | `lumaube.shop` (Namecheap) connected to Shopify, primary, HTTPS; e-mail forwarding `bonjour@` → personal inbox |
 | Shopify | Basic plan, EUR, French, market France only, store name Lumaube |
-| Theme | "Lumaube v2" live (custom OS 2.0 theme, hero video, password page) |
-| Products | Réveil €49.90, Masseur €34.90, Masque €12.90 (black/grey): **drafts**, French copy, SEO, specs, categories, Online Store channel |
+| Theme | "Lumaube v3 (lancement)" uploaded with the same honest copy on home/product/guide (publish it in admin) |
+| Products | Réveil €49.90, Masseur €34.90, Masque €12.90 (black/grey): **active**. Copy limited to supplier-confirmed facts (sunrise light, clock display, alarm, USB, bedside lamp; 8 claws, vibration, USB rechargeable; synthetic-fibre mask). No radio/sounds/sunset/duration/7-colour claims until the sample confirms them |
 | Pages / menus | Livraison, Retours, Mentions légales (published); Guide, CGV (hidden); main + footer menus |
 | Shipping | France zone: free, "7 à 12 jours ouvrés" |
 | Payments | PayPal Express Checkout active (EUR) |
 | Supplier | CJdropshipping app installed and store authorized |
 
 ## Blocking launch
-1. **Lock the store** (Online Store › Preferences › password) until the products are verified: it's public now
-   and shows placeholder products.
-2. **Samples**: order 1 of each from CJ; confirm the wake-up light's features (sunrise duration, sounds/radio,
-   sunset mode). Then update the product copy and the home/guide comparison tables, and remove `[à confirmer]`.
+1. Owner decided to launch on 4 Nov 2026 with supplier-confirmed copy only.
+2. **Samples**: order 1 of each from CJ; if the wake-up light has more features (sunrise duration, sounds/radio,
+   sunset mode), add them to the product page, home and guide.
 3. **CJ product connection**: connect each Shopify product/variant to its CJ variant
    (Réveil 3W With Time, Masseur White, Masque Black/Grey). Shipping: CJPacket Liquid Line (réveil, masseur),
    CJPacket Ordinary (masque).

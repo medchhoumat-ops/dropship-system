@@ -6,7 +6,7 @@
         "style": "light",
         "eyebrow": "Réveil simulateur d'aube",
         "heading": "Réveillez-vous avec la lumière, pas avec un bip.",
-        "text": "<p>Pendant 10 à 60 minutes avant votre alarme, la lumière monte doucement, comme un lever de soleil dans la chambre. Les matins d'hiver deviennent plus doux.</p>",
+        "text": "<p>Avant votre alarme, la lumière monte doucement, comme un lever de soleil dans la chambre. Les matins d'hiver deviennent plus doux.</p>",
         "button_label": "Découvrir le réveil",
         "button_link": "/products/reveil-simulateur-d-aube",
         "button2_label": "Comment choisir ?",
@@ -81,7 +81,7 @@
           "settings": {
             "icon": "clock",
             "title": "1. Réglez votre heure",
-            "text": "Choisissez l'heure du réveil et la durée de l'aube : de 10 à 60 minutes."
+            "text": "Choisissez l'heure du réveil, comme sur un réveil classique."
           }
         },
         "s2": {
@@ -89,15 +89,15 @@
           "settings": {
             "icon": "sun",
             "title": "2. La lumière monte",
-            "text": "Du rouge orangé au blanc chaud, la chambre s'éclaire progressivement."
+            "text": "Avant l'alarme, la chambre s'éclaire progressivement."
           }
         },
         "s3": {
           "type": "step",
           "settings": {
             "icon": "sound",
-            "title": "3. Un son doux, si vous voulez",
-            "text": "Chants d'oiseaux, vagues ou radio FM prennent le relais à l'heure choisie."
+            "title": "3. L'alarme prend le relais",
+            "text": "À l'heure choisie, vous vous réveillez dans une chambre déjà éclairée."
           }
         }
       },
@@ -112,7 +112,7 @@
       "settings": {
         "eyebrow": "Rituel du soir",
         "heading": "Le soir aussi, on ralentit",
-        "text": "<p>Le mode crépuscule fait baisser la lumière doucement pendant que vous lisez. Ajoutez un masque de nuit pour le noir complet, et un massage du cuir chevelu pour décrocher de la journée.</p>",
+        "text": "<p>Le soir, le réveil sert aussi de lampe de chevet. Ajoutez un masque de nuit pour le noir complet, et quelques minutes de massage du cuir chevelu pour décrocher de la journée.</p>",
         "button_label": "Voir le rituel du soir",
         "button_link": "/collections/all",
         "reverse": true,
@@ -143,28 +143,28 @@
         "r2": {
           "type": "row",
           "settings": {
-            "label": "Durée de l'aube réglable",
-            "c1": "10 à 60 min",
-            "c2": "non",
+            "label": "Écran avec l'heure",
+            "c1": "oui",
+            "c2": "oui",
             "c3": "oui"
           }
         },
         "r3": {
           "type": "row",
           "settings": {
-            "label": "Sons naturels / radio FM",
+            "label": "Fait aussi lampe de chevet",
             "c1": "oui",
-            "c2": "selon modèle",
-            "c3": "oui"
+            "c2": "non",
+            "c3": "selon modèle"
           }
         },
         "r4": {
           "type": "row",
           "settings": {
-            "label": "Mode crépuscule le soir",
+            "label": "Livraison offerte + 30 jours pour essayer",
             "c1": "oui",
-            "c2": "non",
-            "c3": "oui"
+            "c2": "variable",
+            "c3": "variable"
           }
         },
         "r5": {

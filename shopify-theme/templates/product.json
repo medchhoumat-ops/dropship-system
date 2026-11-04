@@ -20,7 +20,7 @@
         "benefits": {
           "type": "benefits",
           "settings": {
-            "items": "La lumière augmente progressivement avant l'alarme (durée réglable)\nSons naturels doux et radio FM en option\nMode crépuscule pour s'endormir le soir\nFait aussi lampe de chevet tamisable"
+            "items": "La lumière augmente progressivement avant l'alarme, comme un lever de soleil\nÉcran avec l'heure et fonction réveil\nFait aussi lampe de chevet\nAlimentation USB, simple à installer"
           }
         },
         "variants": {
@@ -90,7 +90,7 @@
             "heading": "Conseils d'utilisation",
             "icon": "leaf",
             "source": "custom",
-            "content": "<p>Placez le réveil à 40–60 cm de votre tête, orienté vers vous. Commencez par une aube de 30 minutes et une alarme sonore douce, puis ajustez selon vos matins. Laissez les rideaux fermés pour profiter de l'effet.</p>",
+            "content": "<p>Placez le réveil sur la table de chevet, à 40–60 cm de votre tête, orienté vers vous. Laissez les rideaux fermés : l'effet lever de soleil est plus net dans une chambre sombre.</p>",
             "open": false
           }
         }
@@ -126,7 +126,7 @@
           "settings": {
             "icon": "clock",
             "title": "Réglez l'heure",
-            "text": "Indiquez votre heure de réveil et la durée de l'aube (10 à 60 min)."
+            "text": "Indiquez votre heure de réveil, comme sur un réveil classique."
           }
         },
         "s1": {
@@ -134,7 +134,7 @@
           "settings": {
             "icon": "sun",
             "title": "Laissez la lumière monter",
-            "text": "La lampe passe du rouge orangé au blanc chaud, très progressivement."
+            "text": "Avant l'alarme, la lampe s'allume puis augmente progressivement, comme un lever de soleil."
           }
         },
         "s2": {
@@ -142,7 +142,7 @@
           "settings": {
             "icon": "sound",
             "title": "Réveil en douceur",
-            "text": "À l'heure choisie, un son naturel ou la radio prend le relais."
+            "text": "À l'heure choisie, l'alarme prend le relais, dans une chambre déjà éclairée."
           }
         }
       },
@@ -164,7 +164,7 @@
           "type": "qa",
           "settings": {
             "question": "Quelle est la différence avec un réveil normal ?",
-            "answer": "<p>Un réveil classique sonne d'un coup. Ici, la lumière augmente progressivement pendant la durée choisie, puis le son arrive en douceur.</p>"
+            "answer": "<p>Un réveil classique sonne d'un coup, dans le noir. Ici, la lumière augmente progressivement avant l'alarme, comme un lever de soleil.</p>"
           }
         },
         "q1": {
@@ -177,15 +177,15 @@
         "q2": {
           "type": "qa",
           "settings": {
-            "question": "Puis-je l'utiliser sans le son ?",
-            "answer": "<p>Oui, vous pouvez choisir un réveil uniquement lumineux, ou baisser le volume au minimum.</p>"
+            "question": "Peut-on l'utiliser comme lampe de chevet ?",
+            "answer": "<p>Oui, c'est aussi une lampe de chevet au quotidien.</p>"
           }
         },
         "q3": {
           "type": "qa",
           "settings": {
             "question": "Comment est-il alimenté ?",
-            "answer": "<p>Par câble USB fourni. Les détails exacts (adaptateur, autonomie de sauvegarde) sont indiqués dans les caractéristiques.</p>"
+            "answer": "<p>Par USB : branchez-le sur un adaptateur secteur USB ou sur un ordinateur.</p>"
           }
         },
         "q4": {

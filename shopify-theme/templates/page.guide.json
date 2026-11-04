@@ -23,7 +23,7 @@
             "label": "Durée de l'aube",
             "c1": "Réglable, 20 à 40 min",
             "c2": "Durée fixe trop courte",
-            "c3": "10 à 60 min"
+            "c3": "Aube progressive avant l'alarme"
           }
         },
         "c2": {
@@ -32,7 +32,7 @@
             "label": "Couleur de la lumière",
             "c1": "Du rouge orangé au blanc chaud",
             "c2": "Lumière bleue/froide",
-            "c3": "oui"
+            "c3": "Lumière chaude"
           }
         },
         "c3": {
@@ -41,7 +41,7 @@
             "label": "Son de réveil",
             "c1": "Sons naturels + volume progressif",
             "c2": "Bip seul",
-            "c3": "oui"
+            "c3": "Alarme"
           }
         },
         "c4": {
@@ -50,7 +50,7 @@
             "label": "Mode crépuscule",
             "c1": "Utile pour s'endormir",
             "c2": "Absent",
-            "c3": "oui"
+            "c3": "Non annoncé"
           }
         },
         "c5": {
@@ -59,7 +59,7 @@
             "label": "Écran",
             "c1": "Luminosité réglable / éteignable la nuit",
             "c2": "Écran trop lumineux",
-            "c3": "oui"
+            "c3": "Écran avec l'heure"
           }
         },
         "c6": {
@@ -114,7 +114,7 @@
           "type": "qa",
           "settings": {
             "question": "Est-ce utile en été ?",
-            "answer": "<p>Oui pour le mode crépuscule et la lampe de chevet, mais c'est en automne et en hiver, quand il fait nuit au réveil, que l'effet se remarque le plus.</p>"
+            "answer": "<p>Oui, comme lampe de chevet, mais c'est en automne et en hiver, quand il fait nuit au réveil, que l'effet se remarque le plus.</p>"
           }
         }
       },
