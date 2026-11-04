@@ -11,7 +11,7 @@
 **Éditeur du site**
 [Prénom NOM], entrepreneur individuel
 Adresse : [adresse complète, Maroc]
-E-mail : bonjour@lumaube.fr · Téléphone : [+212 …]
+E-mail : bonjour@lumaube.com · Téléphone : [+212 …]
 [N° ICE / IF si statut auto-entrepreneur, sinon supprimer cette ligne]
 Directeur de la publication : [Prénom NOM]
 
@@ -65,7 +65,7 @@ de la page *Retours & remboursements*. Elle ne remplace pas les garanties légal
 **Article 9 – Garanties légales.** Le Client bénéficie de la **garantie légale de conformité** (2 ans
 à compter de la livraison, articles L217-3 et suivants du Code de la consommation) et de la
 **garantie des vices cachés** (articles 1641 et suivants du Code civil). En cas de défaut, contactez
-bonjour@lumaube.fr : réparation, remplacement ou remboursement, sans frais pour le Client.
+bonjour@lumaube.com : réparation, remplacement ou remboursement, sans frais pour le Client.
 
 **Article 10 – Médiation.** En cas de litige non résolu, le Client peut recourir gratuitement au
 médiateur de la consommation : [nom et site du médiateur – à souscrire, voir la note ci-dessous].
@@ -76,7 +76,7 @@ médiateur de la consommation : [nom et site du médiateur – à souscrire, voi
 impératives de son pays de résidence.
 
 **Annexe – Formulaire de rétractation**
-> À l'attention de [Prénom NOM], [adresse], bonjour@lumaube.fr :
+> À l'attention de [Prénom NOM], [adresse], bonjour@lumaube.com :
 > Je vous notifie par la présente ma rétractation du contrat portant sur la vente du bien ci-dessous :
 > Commandé le / reçu le : … · N° de commande : … · Nom : … · Adresse : … · Date : … · Signature (si papier)
 
@@ -95,7 +95,7 @@ impératives de son pays de résidence.
 ## 4. Retours & remboursements (page `/pages/retours`)
 1. **14 jours de rétractation** (légal) + **30 jours satisfait ou remboursé** (notre garantie), à
    compter de la réception.
-2. Écrivez à bonjour@lumaube.fr avec votre numéro de commande. Nous répondons sous 24 h ouvrées
+2. Écrivez à bonjour@lumaube.com avec votre numéro de commande. Nous répondons sous 24 h ouvrées
    avec l'adresse et les instructions de retour.
 3. Le produit doit être complet et en bon état.
 4. **Remboursement** sous 14 jours après réception du retour, sur le moyen de paiement utilisé.
@@ -111,7 +111,7 @@ vérifiez qu'il mentionne :
 - les sous-traitants : Shopify, PayPal, le partenaire logistique (CJ Dropshipping), Google (si vous
   utilisez Analytics ou Ads), l'application d'avis ;
 - la durée de conservation, et vos droits (accès, rectification, effacement, opposition) via
-  bonjour@lumaube.fr, ainsi que le droit de saisir la CNIL ;
+  bonjour@lumaube.com, ainsi que le droit de saisir la CNIL ;
 - les cookies : activez la bannière de consentement Shopify (Paramètres → Confidentialité des clients).
 
 ---

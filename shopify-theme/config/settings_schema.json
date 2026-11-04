@@ -43,7 +43,7 @@
       { "type": "range", "id": "delivery_days_max", "label": "Livraison – maximum (jours ouvrés)", "min": 3, "max": 25, "step": 1, "default": 12 },
       { "type": "text", "id": "free_shipping_text", "label": "Texte livraison", "default": "Livraison offerte en France métropolitaine" },
       { "type": "range", "id": "return_days", "label": "Garantie satisfaction (jours)", "min": 14, "max": 60, "step": 1, "default": 30 },
-      { "type": "text", "id": "support_email", "label": "E-mail du service client", "default": "bonjour@lumaube.fr" }
+      { "type": "text", "id": "support_email", "label": "E-mail du service client", "default": "bonjour@lumaube.com" }
     ]
   },
   {

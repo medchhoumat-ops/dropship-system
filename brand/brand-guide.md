@@ -15,8 +15,11 @@ massager and a silk sleep mask.
 - Web search: no business, shop or brand found using "Lumaube" or "Aubelia".
 - Not checked here, so do these before buying the domain:
   1. Domain availability (the registrar tool was blocked in this environment). Check these in order:
-     `lumaube.fr`, `lumaube.com`, `lumaube.shop`, `lumaube-paris.com`, `aubelia.fr`, `aubelia.com`.
-     A `.fr` domain needs an EU/EEA address for the holder. If that's a problem, use `.com` or `.shop`.
+     `lumaube.com`, `lumaube.shop`, `aubelia.com`.
+     **No `.fr` or `.eu`:** both require the holder to live in the EU/EEA (or Switzerland), so they
+     can't be registered from Morocco in your own name. `.com` works from any country.
+     Avoid city names such as "paris" in the domain: the business is not based there.
+     Support e-mail in the theme and legal pages: `bonjour@lumaube.com` (change it if the domain changes).
   2. Trademark search at INPI ([data.inpi.fr](https://data.inpi.fr)) and EUIPO
      ([euipo.europa.eu/eSearch](https://euipo.europa.eu/eSearch/)) for "Lumaube", classes 9, 11 and 20.
 
