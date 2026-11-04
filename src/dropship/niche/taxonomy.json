@@ -1,0 +1,51 @@
+{
+  "pets": {
+    "dog enrichment": ["dog lick mat", "snuffle mat", "dog puzzle toy", "treat dispensing ball", "chew toy for aggressive chewers", "slow feeder bowl"],
+    "pet grooming": ["pet hair remover roller", "dog paw cleaner", "cat grooming glove", "deshedding brush", "dog nail grinder", "pet grooming wipes"],
+    "pet travel": ["dog car seat cover", "collapsible dog bowl", "dog water bottle", "pet seat belt", "dog poop bag holder", "cat carrier backpack"],
+    "cat comfort": ["cat window perch", "cat water fountain", "self cleaning cat brush", "cat scratching board", "cat tunnel", "heated cat bed"]
+  },
+  "kitchen": {
+    "kitchen organisation": ["magnetic spice rack", "under sink organizer", "pot lid organizer", "fridge organizer bins", "drawer dividers", "cabinet door organizer"],
+    "kitchen gadgets": ["electric milk frother", "vegetable chopper", "herb scissors", "garlic press rocker", "oil sprayer bottle", "salad spinner"],
+    "coffee & tea": ["pour over coffee stand", "cold brew pitcher", "matcha whisk set", "coffee dosing cup", "coffee scale", "tea infuser bottle"],
+    "baking tools": ["silicone baking mat", "cookie scoop", "pastry blender", "dough scraper", "cake decorating turntable", "piping bag set"]
+  },
+  "home": {
+    "cleaning tools": ["electric spin scrubber", "grout cleaning brush", "window squeegee", "microfiber cleaning cloths", "lint remover", "drain hair catcher"],
+    "home lighting": ["motion sensor night light", "led strip lights", "sunset lamp", "rechargeable wall sconce", "under cabinet lights", "moon lamp"],
+    "bathroom upgrades": ["shower caddy", "toothbrush holder wall mounted", "shower head filter", "bath pillow", "toilet night light", "soap dispenser automatic"]
+  },
+  "fitness": {
+    "home workout": ["resistance bands set", "ab roller wheel", "push up board", "pilates ring", "jump rope weighted", "door pull up bar"],
+    "recovery": ["massage gun mini", "foam roller", "acupressure mat", "neck stretcher", "massage ball", "posture corrector"],
+    "yoga": ["yoga wheel", "yoga blocks", "yoga strap", "non slip yoga towel", "meditation cushion", "balance board"]
+  },
+  "beauty": {
+    "skincare tools": ["ice roller", "gua sha", "facial steamer", "blackhead remover vacuum", "led face mask", "jade roller"],
+    "hair care": ["heatless curling rod", "scalp massager shampoo brush", "hair towel wrap", "silk scrunchies", "detangling brush", "hair oil applicator"],
+    "nail care": ["electric nail file", "cuticle pusher", "nail drying lamp", "glass nail file", "nail art stamper", "press on nails kit"]
+  },
+  "baby": {
+    "baby feeding": ["silicone baby bib", "baby food maker", "suction plate", "sippy cup", "baby spoon set", "formula dispenser"],
+    "baby safety": ["cabinet locks baby", "corner protectors", "outlet covers", "baby monitor holder", "door stopper baby", "baby nail trimmer electric"],
+    "nursery": ["white noise machine", "baby night light", "swaddle blanket", "crib mobile", "diaper caddy", "nursing pillow"]
+  },
+  "car": {
+    "car organisation": ["car seat gap filler", "back seat organizer", "trunk organizer", "car trash can", "visor organizer", "car cup holder expander"],
+    "car cleaning": ["car vacuum cordless", "car detailing brush", "cleaning gel for car", "windshield cleaning tool", "car microfiber towel", "car scratch remover"],
+    "car comfort": ["car neck pillow", "steering wheel cover", "car phone holder", "car sun shade", "seat cushion for car", "car air freshener diffuser"]
+  },
+  "outdoor": {
+    "camping gear": ["camping lantern rechargeable", "portable camping stove", "hammock straps", "camping cookware set", "solar shower bag", "tent light"],
+    "hiking": ["hydration bladder", "trekking poles", "hiking water filter", "emergency blanket", "carabiner set", "hiking cooling towel"]
+  },
+  "office": {
+    "desk setup": ["monitor stand riser", "cable management box", "laptop stand", "desk mat", "under desk footrest", "desk organizer"],
+    "ergonomics": ["lumbar support pillow", "wrist rest keyboard", "ergonomic mouse", "seat cushion office", "blue light glasses", "standing desk mat"]
+  },
+  "garden": {
+    "gardening tools": ["garden kneeler seat", "soil moisture meter", "plant watering globes", "pruning shears", "seed starter tray", "garden hose nozzle"],
+    "indoor plants": ["self watering pots", "plant grow light", "plant stand indoor", "plant mister", "hanging planter", "moss pole"]
+  }
+}
