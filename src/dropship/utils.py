@@ -24,6 +24,8 @@ def to_jsonable(obj: Any) -> Any:
         return {str(k): to_jsonable(v) for k, v in obj.items()}
     if isinstance(obj, (list, tuple, set)):
         return [to_jsonable(v) for v in obj]
+    if isinstance(obj, float) and (obj != obj or obj in (float("inf"), float("-inf"))):
+        return None  # JSON has no NaN/Infinity
     return obj
 
 
