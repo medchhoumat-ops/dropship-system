@@ -44,7 +44,8 @@
         "bundle": {
           "type": "bundle",
           "settings": {
-            "heading": "Complétez votre rituel"
+            "heading": "Le rituel du matin",
+            "product": "reveil-simulateur-d-aube"
           }
         },
         "specs": {

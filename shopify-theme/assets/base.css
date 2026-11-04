@@ -278,3 +278,13 @@ strong { font-weight: var(--f-body-bold); }
 .toast { position: fixed; z-index: 50; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--c-dark); color: var(--c-bg); border-radius: 999px; padding: 12px 18px; display: flex; gap: 16px; align-items: center; box-shadow: 0 16px 40px -16px rgba(0,0,0,.5); }
 .toast[hidden] { display: none; }
 .toast__link { color: var(--c-accent-2); font-weight: var(--f-body-bold); }
+
+/* Password page */
+.template-password .main { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(180deg, var(--c-surface), var(--c-bg)); }
+.password { width: 100%; padding: 64px 0; text-align: center; }
+.password__logo { display: flex; justify-content: center; margin-bottom: 28px; }
+.password__message { color: var(--c-text-soft); margin: 0 auto 24px; max-width: 34em; }
+.password .newsletter__form { justify-content: center; }
+.password__owner { margin-top: 40px; color: var(--c-text-soft); }
+.password__owner summary { cursor: pointer; font-size: .9em; }
+.password__owner form { margin-top: 16px; }

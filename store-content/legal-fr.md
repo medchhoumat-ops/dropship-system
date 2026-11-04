@@ -29,7 +29,7 @@ Voir notre [Politique de confidentialité](/policies/privacy-policy).
 
 ## 2. Conditions générales de vente (CGV)
 
-**Article 1 – Objet.** Les présentes CGV s'appliquent aux ventes conclues sur lumaube.[fr/com] entre
+**Article 1 – Objet.** Les présentes CGV s'appliquent aux ventes conclues sur lumaube.shop entre
 [Prénom NOM] (« le Vendeur ») et toute personne physique agissant en tant que consommateur
 (« le Client »).
 

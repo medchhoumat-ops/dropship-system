@@ -92,5 +92,12 @@
   "gift_card": {
     "title": "Your gift card",
     "expired": "This gift card has expired."
+  },
+  "password": {
+    "notify": "Notify me",
+    "owner": "Are you the store owner? Enter using password",
+    "label": "Password",
+    "enter": "Enter",
+    "wrong": "Wrong password."
   }
 }
