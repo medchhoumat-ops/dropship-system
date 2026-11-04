@@ -2,7 +2,7 @@
   <div class="container container--narrow">
     <p class="eyebrow">{{ article.published_at | time_tag: format: 'date' }}</p>
     <h1 class="section__title">{{ article.title }}</h1>
-    {%- if article.image -%}{{ article.image | image_url: width: 1200 | image_tag: loading: 'eager', class: 'article__img', alt: article.title | escape }}{%- endif -%}
+    {%- if article.image -%}{{ article.image | image_url: width: 1200 | image_tag: loading: 'eager', class: 'article__img', alt: article.title }}{%- endif -%}
     <div class="rte">{{ article.content }}</div>
   </div>
 </article>

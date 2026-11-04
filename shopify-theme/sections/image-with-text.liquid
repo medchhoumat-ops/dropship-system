@@ -2,7 +2,8 @@
   <div class="container split{% if section.settings.reverse %} split--reverse{% endif %}">
     <div class="split__media">
       {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500, 800, 1200', sizes: '(min-width: 990px) 50vw, 100vw', alt: section.settings.image.alt | default: section.settings.heading | escape }}
+        {%- assign img_alt = section.settings.image.alt | default: section.settings.heading -%}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500, 800, 1200', sizes: '(min-width: 990px) 50vw, 100vw', alt: img_alt }}
       {%- else -%}
         {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}
       {%- endif -%}

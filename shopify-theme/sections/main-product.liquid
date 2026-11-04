@@ -9,7 +9,8 @@
         <div class="gallery__slide{% if forloop.first %} is-active{% endif %}" data-media-id="{{ media.id }}">
           {%- case media.media_type -%}
             {%- when 'image' -%}
-              {{ media | image_url: width: 1400 | image_tag: loading: 'eager', widths: '500, 800, 1100, 1400', sizes: '(min-width: 990px) 55vw, 100vw', alt: media.alt | default: product.title | escape }}
+              {%- assign img_alt = media.alt | default: product.title -%}
+              {{ media | image_url: width: 1400 | image_tag: loading: 'eager', widths: '500, 800, 1100, 1400', sizes: '(min-width: 990px) 55vw, 100vw', alt: img_alt }}
             {%- when 'video' -%}
               {{ media | video_tag: controls: true, muted: true, playsinline: true, image_size: '1100x' }}
             {%- when 'external_video' -%}
@@ -123,7 +124,7 @@
               <p class="bundle__title">{% render 'icon', name: 'gift' %} {{ block.settings.heading }}</p>
               <div class="bundle__row">
                 {%- if other.featured_media -%}
-                  {{ other.featured_media | image_url: width: 160 | image_tag: loading: 'lazy', class: 'bundle__img', alt: other.title | escape }}
+                  {{ other.featured_media | image_url: width: 160 | image_tag: loading: 'lazy', class: 'bundle__img', alt: other.title }}
                 {%- endif -%}
                 <div class="bundle__text">
                   <a href="{{ other.url }}">{{ other.title }}</a>

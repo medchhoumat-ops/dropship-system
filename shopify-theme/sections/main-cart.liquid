@@ -6,7 +6,7 @@
         <ul class="cart__items">
           {%- for item in cart.items -%}
             <li class="cart__item">
-              {%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'cart__img', alt: item.title | escape }}{%- endif -%}
+              {%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'cart__img', alt: item.title }}{%- endif -%}
               <div class="cart__info">
                 <a href="{{ item.url }}">{{ item.product.title }}</a>
                 {%- unless item.product.has_only_default_variant -%}<small>{{ item.variant.title }}</small>{%- endunless -%}

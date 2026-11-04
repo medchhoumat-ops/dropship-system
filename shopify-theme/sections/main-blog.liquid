@@ -5,7 +5,7 @@
       <div class="grid grid--3">
         {%- for article in blog.articles -%}
           <article class="card">
-            {%- if article.image -%}<a class="card__media" href="{{ article.url }}">{{ article.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: article.title | escape }}</a>{%- endif -%}
+            {%- if article.image -%}<a class="card__media" href="{{ article.url }}">{{ article.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: article.title }}</a>{%- endif -%}
             <div class="card__body">
               <h2 class="card__title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
               <p class="card__tagline">{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</p>
