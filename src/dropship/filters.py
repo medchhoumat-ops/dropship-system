@@ -13,9 +13,6 @@ from dataclasses import dataclass, field
 from .config import Market, Settings
 from .models import ShippingOption, SourcedProduct
 
-OPTION_WORDS = ("size", "colour", "color", "style", "pattern", "length", "capacity", "model")
-
-
 @dataclass
 class FilterResult:
     passed: bool
@@ -27,12 +24,12 @@ class FilterResult:
 
 
 def is_single_variant(product: SourcedProduct) -> bool:
+    """True when the customer has nothing to choose (no size/colour/style options)."""
     if len(product.variants) <= 1:
         return True
-    # several SKUs that differ only by non-option attributes (e.g. packaging) still count as one
-    keys = {k.lower() for v in product.variants for k in v.attributes}
-    return not keys or not any(w in k for k in keys for w in OPTION_WORDS) and len(
-        {tuple(sorted(v.attributes.items())) for v in product.variants}) == 1
+    distinct = {tuple(sorted(v.attributes.items())) if v.attributes else v.name.strip().lower()
+                for v in product.variants}
+    return len(distinct) == 1
 
 
 def evaluate(product: SourcedProduct, market: Market, settings: Settings) -> FilterResult:
