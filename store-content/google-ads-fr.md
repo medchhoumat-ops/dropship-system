@@ -1,15 +1,16 @@
 # Google Merchant Center + Google Ads – launch plan (France)
 
-**Economics** (PayPal-only fees 9% + €0.49):
+**Economics** (updated 5 Nov 2026 with real CJ shipping; PayPal + Shopify fees ≈ 9% + €0.49):
 
-| Product | Price | Profit/order | Break-even CPA | Break-even ROAS |
+| Product | Price | Profit/order before VAT | Profit if 20% VAT is due (IOSS, to confirm) | Max ad spend per sale (conservative) |
 |---|---|---|---|---|
-| Wake-up light | €49.90 | €23.92 | **€23.92** | **2.09** |
-| Kit (light + mask) | €59.90 | €27.42 | €27.42 | 2.18 |
-| Scalp massager | €34.90 | €21.67 | €21.67 | 1.61 |
+| Wake-up light | €49.90 | ≈ €22 | ≈ €13.6 | **€13** |
+| Scalp massager | €34.90 | ≈ €21 | ≈ €15.5 | **€15** |
+| Sleep mask | €12.90 | ≈ €5 | ≈ €3 | not advertised alone |
 
-Measured clicks cost **$0.10–0.16** (Semrush CPC, in USD ≈ same in €). At 1.5% conversion that's €7–11 of ads per sale,
-which is profitable. **Confirm with real data before scaling.**
+Measured clicks cost **$0.10–0.16** (Semrush CPC). At 1.5% conversion that's €7–11 of ads per sale, which fits
+under the conservative limits. **Confirm with real data before scaling.** Step-by-step setup:
+`docs/GUIDE-finish-setup-and-google-ads.md`.
 
 ## 1. Merchant Center (week 1)
 1. Shopify → install the **Google & YouTube** app → connect or create Merchant Center → target country
@@ -27,10 +28,10 @@ which is profitable. **Confirm with real data before scaling.**
 
 ### A. Standard Shopping – "FR | Réveil aube | Shopping"
 - **Budget:** €10/day. **Bidding:** manual CPC, max **€0.25** (market is €0.10–0.16).
-- **Products:** wake-up light + kit only.
+- **Products:** wake-up light (masseur in its own product group; masque excluded).
 - **Negative keywords (phrase):** philips, lumie, gratuit, occasion, notice, mode d'emploi, réparation,
   bébé, veilleuse bébé, amazon, cdiscount, fnac, darty, boulanger, leclerc, ikea, pile.
-- After about 30 conversions, switch to Target ROAS **≥ 250%** (break-even is 209%).
+- After about 30 conversions, switch to Target ROAS **≥ 300%** (conservative break-even ≈ 370% if VAT is due, ≈ 230% if not).
 
 ### B. Search – "FR | Réveil aube | Search"
 - **Budget:** €5/day. **Max CPC:** €0.30.
@@ -59,7 +60,7 @@ which is profitable. **Confirm with real data before scaling.**
 - **Budget:** €3/day, max CPC €0.20. Demand is small (≈ 700 searches/month), so this is a test.
 
 ## 3. Rules
-- **Pause a product** once it has spent **€24** (one break-even CPA) with no sale.
+- **Pause a product** once it has spent **€15** with no sale (conservative break-even CPA).
 - **Scale +20% budget every 3 days** while ROAS stays **> 2.5**.
 - **Every week:** add search terms that don't fit (brands, "gratuit", other products) as negatives.
 - **Seasonality:** demand peaks **October → February**. Lower budgets from March.
